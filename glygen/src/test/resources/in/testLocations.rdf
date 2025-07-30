@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.uniprot.org/core/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://purl.uniprot.org/core/"/>
+</owl:Ontology>
+<rdf:Description rdf:about="http://purl.uniprot.org/locations/162">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Cellular_Component"/>
+<skos:prefLabel>Membrane</skos:prefLabel>
+<alias>Membrane</alias>
+<rdfs:comment>A membrane is a lipid bilayer which surrounds enclosed spaces and compartments. This selectively permeable structure is essential for effective separation of a cell or organelle from its surroundings. Membranes are composed of various types of molecules such as phospholipids, integral membrane proteins, peripheral proteins, glycoproteins, glycolipids, etc. The relative amounts of these components as well as the types of lipids are non-randomly distributed from membrane to membrane as well as between the two leaflets of a membrane.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/core/Cellular_Component"/>
+<skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/GO_0016020"/>
+<owl:sameAs rdf:resource="http://purl.uniprot.org/keywords/472"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/locations/69">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Cellular_Component"/>
+<skos:prefLabel>Clathrin-coated pit</skos:prefLabel>
+<skos:altLabel>ClathrinCoated pit</skos:altLabel>
+<skos:altLabel>ClathrinCoated-Pit</skos:altLabel>
+<alias>clathrin-coated pit</alias>
+<rdfs:comment>Coated pits are regions of the cell membrane specialized in receptor-mediated endocytosis. Their cytoplasmic surface is coated with a bristlelike structure made of clathrin. During the first steps of endocytosis, clathrin-coated pits are internalized to form clathrin-coated vesicles which transport proteins from organelle to organelle.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/locations/72"/>
+<skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/GO_0005905"/>
+<relatedLocation rdf:resource="http://purl.uniprot.org/locations/162"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/locations/279">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Cellular_Component"/>
+<skos:prefLabel>Axon</skos:prefLabel>
+<alias>axon</alias>
+<rdfs:comment>The axon is the long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/locations/280"/>
+<skos:exactMatch rdf:resource="http://purl.obolibrary.org/obo/GO_0030424"/>
+<relatedLocation rdf:resource="http://purl.uniprot.org/locations/280"/>
+</rdf:Description>
+</rdf:RDF>

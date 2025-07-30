@@ -1,0 +1,31 @@
+P05067	R-HSA-1296421	https://reactome.org/PathwayBrowser/#/R-HSA-1296421	NLRP3 oligomerizes via NACHT domains	TAS	Homo sapiens
+P05067	R-HSA-168166	https://reactome.org/PathwayBrowser/#/R-HSA-168166	NFkB complex is transported from cytosol to nucleus	TAS	Homo sapiens
+P05067	R-HSA-2467665	https://reactome.org/PathwayBrowser/#/R-HSA-2467665	AGRN binds Beta amyloid fibril via GAG chains	TAS	Homo sapiens
+P05067	R-HSA-379048	https://reactome.org/PathwayBrowser/#/R-HSA-379048	Liganded Gq/11-activating GPCRs act as GEFs for Gq/11	TAS	Homo sapiens
+P05067	R-HSA-380073	https://reactome.org/PathwayBrowser/#/R-HSA-380073	Liganded Gi-activating GPCR acts as a GEF for Gi	TAS	Homo sapiens
+P05067	R-HSA-391913	https://reactome.org/PathwayBrowser/#/R-HSA-391913	FPR2 binds FPR2 ligands	TAS	Homo sapiens
+P05067	R-HSA-481007	https://reactome.org/PathwayBrowser/#/R-HSA-481007	Exocytosis of platelet alpha granule contents	TAS	Homo sapiens
+P05067	R-HSA-5229111	https://reactome.org/PathwayBrowser/#/R-HSA-5229111	AP4 transports APP from trans-Golgi network to endosome lumen	TAS	Homo sapiens
+P05067	R-HSA-5229132	https://reactome.org/PathwayBrowser/#/R-HSA-5229132	AP4 binds APP	TAS	Homo sapiens
+P05067	R-HSA-5692495	https://reactome.org/PathwayBrowser/#/R-HSA-5692495	BACE1 cleaves APP(18-770) to APP(18-671) and APP(672-770)	TAS	Homo sapiens
+P05067	R-HSA-6783332	https://reactome.org/PathwayBrowser/#/R-HSA-6783332	APP(672-713),APP(672-711) translocate from endosome lumen to extracellular region	TAS	Homo sapiens
+P05067	R-HSA-749448	https://reactome.org/PathwayBrowser/#/R-HSA-749448	Liganded Gq-activating GPCRs bind inactive heterotrimeric Gq	TAS	Homo sapiens
+P05067	R-HSA-749452	https://reactome.org/PathwayBrowser/#/R-HSA-749452	The Ligand:GPCR:Gq complex dissociates	TAS	Homo sapiens
+P05067	R-HSA-749454	https://reactome.org/PathwayBrowser/#/R-HSA-749454	The Ligand:GPCR:Gi complex dissociates	TAS	Homo sapiens
+P05067	R-HSA-749456	https://reactome.org/PathwayBrowser/#/R-HSA-749456	Liganded Gi-activating GPCRs bind inactive heterotrimeric G-protein Gi	TAS	Homo sapiens
+P05067	R-HSA-844440	https://reactome.org/PathwayBrowser/#/R-HSA-844440	NLRP3 activation by elicitor proteins	TAS	Homo sapiens
+P05067	R-HSA-844610	https://reactome.org/PathwayBrowser/#/R-HSA-844610	ASC is recruited via a PYD-PYD interaction	TAS	Homo sapiens
+P05067	R-HSA-844612	https://reactome.org/PathwayBrowser/#/R-HSA-844612	The CARD domain of ASC recruits Procaspase-1	TAS	Homo sapiens
+P05067	R-HSA-879362	https://reactome.org/PathwayBrowser/#/R-HSA-879362	AGER binds ERK1/2	IEA	Homo sapiens
+P05067	R-HSA-879411	https://reactome.org/PathwayBrowser/#/R-HSA-879411	Advanced glycosylation end product-specific receptor (AGER/RAGE) is a multiligand receptor	TAS	Homo sapiens
+P05067	R-HSA-8863009	https://reactome.org/PathwayBrowser/#/R-HSA-8863009	Influx of extracellular calcium	TAS	Homo sapiens
+P05067	R-HSA-8870710	https://reactome.org/PathwayBrowser/#/R-HSA-8870710	APP gene expression	TAS	Homo sapiens
+P05067	R-HSA-8871494	https://reactome.org/PathwayBrowser/#/R-HSA-8871494	SORL1 binds APP(18-770)	TAS	Homo sapiens
+P05067	R-HSA-8871506	https://reactome.org/PathwayBrowser/#/R-HSA-8871506	SORL1 transports APP(18-770) from endosome lumen to Golgi lumen	TAS	Homo sapiens
+P05067	R-HSA-8952289	https://reactome.org/PathwayBrowser/#/R-HSA-8952289	FAM20C phosphorylates FAM20C substrates	TAS	Homo sapiens
+P05067	R-HSA-9010034	https://reactome.org/PathwayBrowser/#/R-HSA-9010034	ADAM10:Zn2+:TSPANs cleaves APP(18-770)	TAS	Homo sapiens
+P05067	R-HSA-9010091	https://reactome.org/PathwayBrowser/#/R-HSA-9010091	APP translocates from plasma membrane to endosome lumen	TAS	Homo sapiens
+P05067	R-HSA-9010096	https://reactome.org/PathwayBrowser/#/R-HSA-9010096	Gamma-secretase cleaves APP(672-770) to APP(672-711) and APP(672-713)	TAS	Homo sapiens
+P05067	R-HSA-976734	https://reactome.org/PathwayBrowser/#/R-HSA-976734	Amyloid fibrils have additional components	TAS	Homo sapiens
+P05067	R-HSA-977136	https://reactome.org/PathwayBrowser/#/R-HSA-977136	Amyloid precursor proteins form ordered fibrils	TAS	Homo sapiens
+P05067	R-NUL-997411	https://reactome.org/PathwayBrowser/#/R-NUL-997411	AGER binds rat ERK1/2	TAS	Homo sapiens

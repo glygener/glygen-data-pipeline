@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.uniprot.org/core/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<rdf:Description rdf:about="http://purl.uniprot.org/keywords/25">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Concept"/>
+<skos:prefLabel>Alternative splicing</skos:prefLabel>
+<rdfs:comment>Protein for which at least two isoforms exist due to distinct pre-mRNA splicing events.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/keywords/9997"/>
+<category rdf:resource="http://purl.uniprot.org/keywords/9997"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/keywords/175">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Concept"/>
+<skos:prefLabel>Coiled coil</skos:prefLabel>
+<skos:altLabel>Heptad repeat pattern</skos:altLabel>
+<rdfs:comment>Protein which contains at least one coiled coil domain, a type of secondary structure composed of two or more alpha helices which entwine to form a cable structure. In proteins, the helical cables serve a mechanical role in forming stiff bundles of fibres.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/keywords/9994"/>
+<category rdf:resource="http://purl.uniprot.org/keywords/9994"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/keywords/966">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Concept"/>
+<skos:prefLabel>Cell projection</skos:prefLabel>
+<skos:altLabel>Cell protrusion</skos:altLabel>
+<rdfs:comment>Protein found in or associated with a cell protrusion such as pseudopodium, filopodium, lamellipodium, growth cone, flagellum, acrosome or axon, or bacterial comet tail. These membrane-cytoskeleton-coupled processes are involved in many biological functions, such as cell motility, cancer-cell invasion, endocytosis, phagocytosis, exocytosis, pathogen infection, neurite extension and cytokinesis.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/keywords/9998"/>
+<skos:narrower rdf:resource="http://purl.uniprot.org/keywords/969"/>
+<category rdf:resource="http://purl.uniprot.org/keywords/9998"/>
+<rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/GO_0042995"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/keywords/2">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Concept"/>
+<skos:prefLabel>3D-structure</skos:prefLabel>
+<rdfs:comment>Protein, or part of a protein, whose three-dimensional structure has been resolved experimentally (for example by X-ray crystallography or NMR spectroscopy) and whose coordinates are available in the PDB database. Can also be used for theoretical models.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/keywords/9990"/>
+<category rdf:resource="http://purl.uniprot.org/keywords/9990"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/keywords/349">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Concept"/>
+<skos:prefLabel>Heme</skos:prefLabel>
+<skos:altLabel>Haeme</skos:altLabel>
+<rdfs:comment>Protein containing at least one heme, an iron atom coordinated to a protoporphyrin IX. In myoglobin and hemoglobin, one of the coordination positions of iron is occupied by oxygen or other ligands, such as carbon monoxide. Hemes are also found in cytochromes of the electron-transport chain where they bind electrons, in reducing peroxides (catalases and peroxidases), and act as terminal components in multienzyme systems involved in hydroxylation. Cytochrome c is the only common heme protein in which the heme is covalently bound.</rdfs:comment>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/keywords/408"/>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/keywords/479"/>
+<category rdf:resource="http://purl.uniprot.org/keywords/9993"/>
+</rdf:Description>
+</rdf:RDF>

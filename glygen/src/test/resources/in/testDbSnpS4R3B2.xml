@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<gnEntries>
+    <gnEntry xmlns:ns2="http://www.ebi.ac.uk/proteins/api/doc/xsd/feature">
+        <accession>S4R3B2</accession>
+        <name>S4R3B2_HUMAN</name>
+        <taxid>9606</taxid>
+        <sequence>MVSWGRFICLVVVTMATLSLARPSFSLVEDTTLEPEGAPYWTNTEKMEKRLHAVPAANTVKFRCPAGGNPMPTMRWLKNGKEFKQEHRIGGYKVRNQHWSLIMESVVPSDKGNYTCVVENEYGSINHTYHLDVVERSPHRPILQAGLPANASTVVGGDVEFVCKVYSDAQPHIQWIKHVEKNGSKYGPDGLPYLKVLKHSGINSSNAEVLALFNVTEADAGEYICKVSNYIGQANQSAWLTVLPKQQGRRC</sequence>
+        <protein>
+            <recommendedName>
+                <fullName>Ig-like domain-containing protein</fullName>
+            </recommendedName>
+            <submittedName>
+                <fullName>Fibroblast growth factor receptor 2</fullName>
+            </submittedName>
+        </protein>
+        <gene type="primary">FGFR2</gene>
+        <gnCoordinate ensembl_gene_id="ENSG00000066468" ensembl_transcript_id="ENST00000604236" ensembl_translation_id="ENSP00000474109">
+            <genomicLocation chromosome="10" start="121593817" end="121517453" reverse_strand="true">
+                <exon id="ENSE00003567716">
+                    <proteinLocation>
+                        <ns2:begin position="1"/>
+                        <ns2:end position="37"/>
+                    </proteinLocation>
+                    <genomeLocation>
+                        <ns2:begin position="121593817"/>
+                        <ns2:end position="121593709"/>
+                    </genomeLocation>
+                </exon>
+                <exon id="ENSE00003589679">
+                    <proteinLocation>
+                        <ns2:begin position="37"/>
+                        <ns2:end position="93"/>
+                    </proteinLocation>
+                    <genomeLocation>
+                        <ns2:begin position="121551459"/>
+                        <ns2:end position="121551290"/>
+                    </genomeLocation>
+                </exon>
+                <exon id="ENSE00003681829">
+                    <proteinLocation>
+                        <ns2:begin position="94"/>
+                        <ns2:end position="135"/>
+                    </proteinLocation>
+                    <genomeLocation>
+                        <ns2:begin position="121538715"/>
+                        <ns2:end position="121538592"/>
+                    </genomeLocation>
+                </exon>
+                <exon id="ENSE00003530900">
+                    <proteinLocation>
+                        <ns2:begin position="135"/>
+                        <ns2:end position="198"/>
+                    </proteinLocation>
+                    <genomeLocation>
+                        <ns2:begin position="121520169"/>
+                        <ns2:end position="121519979"/>
+                    </genomeLocation>
+                </exon>
+                <exon id="ENSE00003605080">
+                    <proteinLocation>
+                        <ns2:begin position="199"/>
+                        <ns2:end position="248"/>
+                    </proteinLocation>
+                    <genomeLocation>
+                        <ns2:begin position="121518829"/>
+                        <ns2:end position="121518682"/>
+                    </genomeLocation>
+                </exon>
+                <exon id="ENSE00003551993">
+                    <proteinLocation>
+                        <ns2:begin position="248"/>
+                        <ns2:end position="251"/>
+                    </proteinLocation>
+                    <genomeLocation>
+                        <ns2:begin position="121517463"/>
+                        <ns2:end position="121517453"/>
+                    </genomeLocation>
+                </exon>
+            </genomicLocation>
+            <feature type="signal peptide">
+                <ns2:location>
+                    <ns2:begin position="1"/>
+                    <ns2:end position="21"/>
+                </ns2:location>
+                <ns2:evidence code="ECO:0000256">
+                    <ns2:dbReference id="SignalP" type="SAM"/>
+                </ns2:evidence>
+                <genomeLocation>
+                    <ns2:begin position="121593817"/>
+                    <ns2:end position="121593755"/>
+                </genomeLocation>
+            </feature>
+            <feature type="domain">
+                <ns2:location>
+                    <ns2:begin position="23"/>
+                    <ns2:end position="132"/>
+                </ns2:location>
+                <ns2:description>Ig-like.</ns2:description>
+                <ns2:evidence code="ECO:0000259">
+                    <ns2:dbReference id="PS50835" type="PROSITE"/>
+                </ns2:evidence>
+                <genomeLocation>
+                    <ns2:begin position="121593751"/>
+                    <ns2:end position="121538599"/>
+                </genomeLocation>
+            </feature>
+            <feature type="domain">
+                <ns2:location>
+                    <ns2:begin position="141"/>
+                    <ns2:end position="241"/>
+                </ns2:location>
+                <ns2:description>Ig-like.</ns2:description>
+                <ns2:evidence code="ECO:0000259">
+                    <ns2:dbReference id="PS50835" type="PROSITE"/>
+                </ns2:evidence>
+                <genomeLocation>
+                    <ns2:begin position="121520152"/>
+                    <ns2:end position="121518701"/>
+                </genomeLocation>
+            </feature>
+        </gnCoordinate>
+    </gnEntry>
+</gnEntries>

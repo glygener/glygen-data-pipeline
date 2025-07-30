@@ -1,0 +1,10 @@
+.vscode/
+glygen/target
+glygen/.idea
+glygen/in
+glygen/dependency-reduced-pom.xml
+reactome/
+releases/
+logs/
+neo4j/
+*.lock

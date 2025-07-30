@@ -1,0 +1,67 @@
+<rdf:Description rdf:about="http://purl.uniprot.org/taxonomy/1294088">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Taxon"/>
+<rank rdf:resource="http://purl.uniprot.org/core/Subspecies"/>
+<scientificName>Pan troglodytes verus x troglodytes</scientificName>
+<otherName>Pan troglodytes verus x Pan troglodytes troglodytes</otherName>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/taxonomy/9598"/>
+<partOfLineage rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</partOfLineage>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/taxonomy/9605">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Taxon"/>
+<rank rdf:resource="http://purl.uniprot.org/core/Genus"/>
+<scientificName>Homo</scientificName>
+<otherName>Homo Linnaeus, 1758</otherName>
+<otherName>humans</otherName>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/taxonomy/207598"/>
+<skos:narrowerTransitive rdf:resource="http://purl.uniprot.org/taxonomy/9606"/>
+<skos:narrowerTransitive rdf:resource="http://purl.uniprot.org/taxonomy/1425170"/>
+<partOfLineage rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</partOfLineage>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/taxonomy/9606">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Taxon"/>
+<rank rdf:resource="http://purl.uniprot.org/core/Species"/>
+<mnemonic>HUMAN</mnemonic>
+<scientificName>Homo sapiens</scientificName>
+<commonName>Human</commonName>
+<otherName>Home sapiens</otherName>
+<otherName>Homo sampiens</otherName>
+<otherName>Homo sapeins</otherName>
+<otherName>Homo sapian</otherName>
+<otherName>Homo sapians</otherName>
+<otherName>Homo sapien</otherName>
+<otherName>Homo sapience</otherName>
+<otherName>Homo sapiens Linnaeus, 1758</otherName>
+<otherName>Homo sapiense</otherName>
+<otherName>Homo sapients</otherName>
+<otherName>Homo sapines</otherName>
+<otherName>Homo spaiens</otherName>
+<otherName>Homo spiens</otherName>
+<otherName>Humo sapiens</otherName>
+<otherName>man</otherName>
+<rdfs:seeAlso rdf:resource="http://animaldiversity.org/site/accounts/information/Homo_sapiens.html"/>
+<rdfs:seeAlso rdf:resource="http://anthro.palomar.edu/homo2/mod_homo_4.htm"/>
+<rdfs:seeAlso rdf:resource="http://archaeologyinfo.com/homo-sapiens/"/>
+<rdfs:seeAlso rdf:resource="http://digimorph.org/specimens/Homo_sapiens/"/>
+<rdfs:seeAlso rdf:resource="http://humanorigins.si.edu/human-characteristics/change"/>
+<rdfs:seeAlso rdf:resource="http://tolweb.org/Homo_sapiens/16421"/>
+<rdfs:seeAlso rdf:resource="http://www.bbc.co.uk/sn/prehistoric_life/human/human_evolution/new_batch1.shtml"/>
+<rdfs:seeAlso rdf:resource="http://www.departments.bucknell.edu/biology/resources/msw3/browse.asp?id=12100795"/>
+<rdfs:seeAlso rdf:resource="http://www.ecotao.com/holism/hu_sap.htm"/>
+<rdfs:seeAlso rdf:resource="http://www.ensembl.org/Homo_sapiens/Info/Index"/>
+<rdfs:seeAlso rdf:resource="http://www.mnh.si.edu/anthro/humanorigins/ha/sap.htm"/>
+<rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Human"/>
+<rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Human_evolution"/>
+<rdfs:seeAlso rdf:resource="https://en.wikipedia.org/wiki/Human_taxonomy"/>
+<rdfs:seeAlso rdf:resource="https://www.biolib.cz/en/taxon/id20558/"/>
+<rdfs:seeAlso rdf:resource="https://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&amp;search_value=180092"/>
+<rdfs:seeAlso rdf:resource="https://www.msu.edu/~heslipst/contents/ANP440/sapiens.htm"/>
+<rdfs:seeAlso rdf:resource="https://www.sciencedaily.com/releases/2005/02/050223122209.htm"/>
+<foaf:depiction rdf:resource="https://news.nationalgeographic.com/news/bigphotos/images/070507-aborigines-dna_big.jpg"/>
+<foaf:depiction rdf:resource="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/1878_Darwin_photo_by_Leonard_from_Woodall_1884_-_cropped_grayed_partially_cleaned.jpg/476px-1878_Darwin_photo_by_Leonard_
+from_Woodall_1884_-_cropped_grayed_partially_cleaned.jpg"/>
+<foaf:depiction rdf:resource="https://www.bl.uk/learning/images/bodies/leonardo2.jpg"/>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/taxonomy/9605"/>
+<skos:narrowerTransitive rdf:resource="http://purl.uniprot.org/taxonomy/63221"/>
+<skos:narrowerTransitive rdf:resource="http://purl.uniprot.org/taxonomy/741158"/>
+<partOfLineage rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</partOfLineage>
+</rdf:Description>

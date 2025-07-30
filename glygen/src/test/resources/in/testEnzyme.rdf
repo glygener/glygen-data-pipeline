@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.uniprot.org/core/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://purl.uniprot.org/core/"/>
+</owl:Ontology>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/1.14.14.1">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Enzyme"/>
+<replaces rdf:resource="http://purl.uniprot.org/enzyme/1.14.1.1"/>
+<replaces rdf:resource="http://purl.uniprot.org/enzyme/1.14.14.2"/>
+<replaces rdf:resource="http://purl.uniprot.org/enzyme/1.14.99.8"/>
+<replaces rdf:resource="http://purl.uniprot.org/enzyme/1.99.1.1"/>
+<skos:prefLabel>unspecific monooxygenase</skos:prefLabel>
+<skos:altLabel>aryl-4-monooxygenase</skos:altLabel>
+<skos:altLabel>aryl hydrocarbon hydroxylase</skos:altLabel>
+<skos:altLabel>cytochrome P450</skos:altLabel>
+<skos:altLabel>flavoprotein-linked monooxygenase</skos:altLabel>
+<skos:altLabel>microsomal monooxygenase</skos:altLabel>
+<skos:altLabel>microsomal P450</skos:altLabel>
+<skos:altLabel>xenobiotic monooxygenase</skos:altLabel>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/1.14.14.1#SIP3D407A65E808CA07"/>
+<rdfs:comment>Acts on a wide range of substrates including many xenobiotics, steroids, fatty acids, vitamins and prostaglandins; reactions catalyzed include hydroxylation, epoxidation, N-oxidation, sulfooxidation, N-, S- and O-dealkylations, desulfation, deamination, and reduction of azo, nitro and N-oxide groups.</rdfs:comment>
+<rdfs:comment>Together with EC 1.6.2.4, it forms a system in which two reducing equivalents are supplied by NADPH.</rdfs:comment>
+<rdfs:comment>Some of the reactions attributed to EC 1.14.15.3 belong here.</rdfs:comment>
+<citation rdf:resource="http://purl.uniprot.org/citations/187601"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/434823"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/489601"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/825720"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/2916844"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/3264134"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/3415241"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/4387094"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/4401153"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/5132997"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/7295706"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/7298645"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/7462235"/>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/enzyme/1.14.14.-"/>
+<skos:broaderTransitive rdf:resource="http://purl.uniprot.org/enzyme/1.14.14.-"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/1.14.14.1#SIP3D407A65E808CA07">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>an organic molecule + O2 + reduced [NADPH--hemoprotein reductase] = an alcohol + H(+) + H2O + oxidized [NADPH--hemoprotein reductase].</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Enzyme"/>
+<skos:prefLabel>hydroperoxy icosatetraenoate dehydratase</skos:prefLabel>
+<skos:altLabel>epidermal lipoxygenase-3</skos:altLabel>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.152#SIPDB621116A4D541F2"/>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.152#SIP3090A876247517EF"/>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.152#SIP47702880366F9F62"/>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.152#SIPF89EC2D51DC24531"/>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.152#SIPD3E37EB2DDCC8FB2"/>
+<activity rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.152#SIP06BFF60597AFD0D2"/>
+<rdfs:comment>The mammalian enzymes accept a range of hydroperoxy icosatetraenoates (HPETE).</rdfs:comment>
+<rdfs:comment>The human enzyme has highest activity with (12R)-HPETE, followed by (12S)-HPETE and (15R)-HPETE with much lower efficiency.</rdfs:comment>
+<rdfs:comment>The murine enzyme has highest activity with (8R)-HPETE followed by (8S)-HPETE. All HPETE isoforms are converted to the corresponding oxoicosatetraenoate forms (KETE).</rdfs:comment>
+<rdfs:comment>The enzymes also catalyze the reaction of EC 5.4.4.7.</rdfs:comment>
+<citation rdf:resource="http://purl.uniprot.org/citations/12881489"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/17045234"/>
+<citation rdf:resource="http://purl.uniprot.org/citations/20921226"/>
+<rdfs:subClassOf rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.-"/>
+<skos:broaderTransitive rdf:resource="http://purl.uniprot.org/enzyme/4.2.1.-"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152#SIPDB621116A4D541F2">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>a hydroperoxyeicosatetraenoate = an oxoeicosatetraenoate + H2O.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152#SIP3090A876247517EF">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>(8S)-hydroperoxy-(5Z,9E,11Z,14Z)-eicosatetraenoate = 8-oxo-(5Z,9E,11Z,14Z)-eicosatetraenoate + H2O.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152#SIP47702880366F9F62">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>(8R)-hydroperoxy-(5Z,9E,11Z,14Z)-eicosatetraenoate = 8-oxo-(5Z,9E,11Z,14Z)-eicosatetraenoate + H2O.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152#SIPF89EC2D51DC24531">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>(12R)-hydroperoxy-(5Z,8Z,10E,14Z)-eicosatetraenoate = 12-oxo-(5Z,8Z,10E,14Z)-eicosatetraenoate + H2O.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152#SIPD3E37EB2DDCC8FB2">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>(12S)-hydroperoxy-(5Z,8Z,10E,14Z)-eicosatetraenoate = 12-oxo-(5Z,8Z,10E,14Z)-eicosatetraenoate + H2O.</rdfs:label>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/enzyme/4.2.1.152#SIP06BFF60597AFD0D2">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Catalytic_Activity"/>
+<rdfs:label>(15S)-hydroperoxy-(5Z,8Z,11Z,13E)-eicosatetraenoate = 15-oxo-(5Z,8Z,11Z,13E)-eicosatetraenoate + H2O.</rdfs:label>
+</rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.uniprot.org/core/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://purl.uniprot.org/core/"/>
+</owl:Ontology>
+<rdf:Description rdf:about="http://purl.uniprot.org/database/EMBL">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Database"/>
+<abbreviation>EMBL</abbreviation>
+<dcterms:identifier>22</dcterms:identifier>
+<category>Sequence databases</category>
+<rdfs:label>EMBL nucleotide sequence database</rdfs:label>
+<linkIsExplicit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</linkIsExplicit>
+<citation rdf:resource="http://purl.uniprot.org/citations/17148479"/>
+<rdfs:seeAlso rdf:resource="https://www.ebi.ac.uk/ena"/>
+<urlTemplate>https://www.ebi.ac.uk/ena/data/view/%s</urlTemplate>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/database/Ensembl">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Database"/>
+<abbreviation>Ensembl</abbreviation>
+<dcterms:identifier>23</dcterms:identifier>
+<category>Genome annotation databases</category>
+<rdfs:label>Ensembl eukaryotic genome annotation project</rdfs:label>
+<linkIsExplicit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</linkIsExplicit>
+<citation rdf:resource="http://purl.uniprot.org/citations/18000006"/>
+<rdfs:seeAlso rdf:resource="https://www.ensembl.org/"/>
+<urlTemplate>https://www.ensembl.org/id/%s</urlTemplate>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/database/PhylomeDB">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Database"/>
+<abbreviation>PhylomeDB</abbreviation>
+<dcterms:identifier>144</dcterms:identifier>
+<category>Phylogenomic databases</category>
+<rdfs:label>Database for complete collections of gene phylogenies</rdfs:label>
+<linkIsExplicit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</linkIsExplicit>
+<citation rdf:resource="http://purl.uniprot.org/citations/17962297"/>
+<rdfs:seeAlso rdf:resource="http://phylomedb.org/"/>
+<urlTemplate>http://phylomedb.org/?q=search_tree&amp;seqid=%s</urlTemplate>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/database/BioMuta">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Database"/>
+<abbreviation>BioMuta</abbreviation>
+<dcterms:identifier>192</dcterms:identifier>
+<category>Polymorphism and mutation databases</category>
+<rdfs:label>BioMuta curated single-nucleotide variation and disease association database</rdfs:label>
+<linkIsExplicit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</linkIsExplicit>
+<citation rdf:resource="http://purl.uniprot.org/citations/24667251"/>
+<rdfs:seeAlso rdf:resource="https://hive.biochemistry.gwu.edu/tools/biomuta/"/>
+<urlTemplate>https://hive.biochemistry.gwu.edu/tools/biomuta/biomuta.php?gene=%s</urlTemplate>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/database/Reactome">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Database"/>
+<abbreviation>Reactome</abbreviation>
+<dcterms:identifier>88</dcterms:identifier>
+<category>Enzyme and pathway databases</category>
+<rdfs:label>Reactome - a knowledgebase of biological pathways and processes</rdfs:label>
+<linkIsExplicit rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</linkIsExplicit>
+<citation rdf:resource="http://purl.uniprot.org/citations/15608231"/>
+<rdfs:seeAlso rdf:resource="https://reactome.org"/>
+<rdfs:comment>Replacement for GK</rdfs:comment>
+<urlTemplate>https://www.reactome.org/PathwayBrowser/#%s&amp;FLG=%u</urlTemplate>
+</rdf:Description>
+</rdf:RDF>

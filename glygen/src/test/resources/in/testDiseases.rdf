@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.uniprot.org/core/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<owl:Ontology rdf:about="">
+<owl:imports rdf:resource="http://purl.uniprot.org/core/"/>
+</owl:Ontology>
+<rdf:Description rdf:about="http://purl.uniprot.org/diseases/85">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Disease"/>
+<skos:prefLabel>Alzheimer disease 1</skos:prefLabel>
+<skos:altLabel>Autosomal dominant Alzheimer disease</skos:altLabel>
+<skos:altLabel>Early-onset Alzheimer disease with cerebral amyloid angiopathy</skos:altLabel>
+<mnemonic>AD1</mnemonic>
+<rdfs:comment>A familial early-onset form of Alzheimer disease. It can be associated with cerebral amyloid angiopathy. Alzheimer disease is a neurodegenerative disorder characterized by progressive dementia, loss of cognitive abilities, and deposition of fibrillar amyloid proteins as intraneuronal neurofibrillary tangles, extracellular amyloid plaques and vascular amyloid deposits. The major constituents of these plaques are neurotoxic amyloid-beta protein 40 and amyloid-beta protein 42, that are produced by the proteolysis of the transmembrane APP protein. The cytotoxic C-terminal fragments (CTFs) and the caspase-cleaved products, such as C31, are also implicated in neuronal death.</rdfs:comment>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/mim/104300"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/medgen/C1863052"/>
+<rdfs:seeAlso rdf:resource="http://id.nlm.nih.gov/mesh/D000544"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/keywords/26"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/keywords/523"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/keywords/1008"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/diseases/97">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Disease"/>
+<skos:prefLabel>Cerebral amyloid angiopathy, APP-related</skos:prefLabel>
+<skos:altLabel>Amyloidosis cerebroarterial APP-related</skos:altLabel>
+<skos:altLabel>Amyloidosis hereditary with cerebral hemorrhage Dutch variant</skos:altLabel>
+<skos:altLabel>Cerebral amyloid angiopathy APP-related Arctic variant</skos:altLabel>
+<skos:altLabel>Cerebral amyloid angiopathy APP-related Dutch variant</skos:altLabel>
+<skos:altLabel>Cerebral amyloid angiopathy APP-related Flemish variant</skos:altLabel>
+<skos:altLabel>Cerebral amyloid angiopathy APP-related Iowa variant</skos:altLabel>
+<skos:altLabel>Cerebral amyloid angiopathy APP-related Italian variant</skos:altLabel>
+<skos:altLabel>Familial occipital calcifications with hemorrhagic strokes leukoencephalopathy arterial dysplasia dementia</skos:altLabel>
+<skos:altLabel>FOCHS-LADD</skos:altLabel>
+<skos:altLabel>HCHWAD</skos:altLabel>
+<skos:altLabel>HCHWA-D</skos:altLabel>
+<skos:altLabel>Hereditary cerebral amyloid angiopathy Dutch type</skos:altLabel>
+<skos:altLabel>Hereditary cerebral hemorrhage with amyloidosis Dutch type</skos:altLabel>
+<skos:altLabel>Hereditary cerebral hemorrhage with amyloidosis Italian type</skos:altLabel>
+<mnemonic>CAA-APP</mnemonic>
+<rdfs:comment>A hereditary localized amyloidosis due to amyloid-beta A4 peptide(s) deposition in the cerebral vessels. The principal clinical characteristics are recurrent cerebral and cerebellar hemorrhages, recurrent strokes, cerebral ischemia, cerebral infarction, and progressive mental deterioration. Patients develop cerebral hemorrhage because of the severe cerebral amyloid angiopathy. Parenchymal amyloid deposits are rare and largely in the form of pre-amyloid lesions or diffuse plaque-like structures. They are Congo red negative and lack the dense amyloid cores commonly present in Alzheimer disease. Some affected individuals manifest progressive aphasic dementia, leukoencephalopathy, and occipital calcifications.</rdfs:comment>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/mim/605714"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/medgen/C2751536"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/medgen/C2931672"/>
+<rdfs:seeAlso rdf:resource="http://id.nlm.nih.gov/mesh/D028243"/>
+<rdfs:seeAlso rdf:resource="http://purl.uniprot.org/keywords/1008"/>
+</rdf:Description>
+</rdf:RDF>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF xmlns:rh="http://rdf.rhea-db.org/"
+xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<rdf:Description rdf:about="http://rdf.rhea-db.org/52124">
+<rdfs:subClassOf rdf:resource="http://rdf.rhea-db.org/Reaction"/>
+<rh:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">52124</rh:id>
+<rh:accession>RHEA:52124</rh:accession>
+<rdfs:label>(4Z,7Z,10Z,13Z,16Z,19Z)-docosahexaenoate + O2 + reduced [NADPH--hemoprotein reductase] = (19S,20R)-epoxy-(4Z,7Z,10Z,13Z,16Z)-docosapentaenoate + H(+) + H2O + oxidized [NADPH--hemoprotein reductase]</rdfs:label>                                                                                              <rh:equation>(4Z,7Z,10Z,13Z,16Z,19Z)-docosahexaenoate + O2 + reduced [NADPH--hemoprotein reductase] = (19S,20R)-epoxy-(4Z,7Z,10Z,13Z,16Z)-docosapentaenoate + H(+) + H2O + oxidized [NADPH--hemoprotein reductase]</rh:equation>                                                                                            <rh:htmlEquation>(4&lt;i&gt;Z&lt;/i&gt;,7&lt;i&gt;Z&lt;/i&gt;,10&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;Z&lt;/i&gt;,16&lt;i&gt;Z&lt;/i&gt;,19&lt;i&gt;Z&lt;/i&gt;)-docosahexaenoate + O&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt; + reduced [NADPH&amp;#8212;hemoprotein reductase] = (19&lt;i&gt;S&lt;/i&gt;,20&lt;i&gt;R&lt;/i&gt;)-epoxy-(4&lt;i&gt;Z&lt;/i&gt;,7&lt;i&gt;Z&lt;/i&gt;,10&lt;i&gt;Z&lt;/i&gt;,13&lt;i&gt;Z&lt;/i&gt;,16&lt;i&gt;Z&lt;/i&gt;)-docosapentaenoate + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; + H&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt;O + oxidized [NADPH&amp;#8212;hemoprotein reductase]</rh:htmlEquation>
+<rh:directionalReaction rdf:resource="http://rdf.rhea-db.org/52125"/>
+<rh:directionalReaction rdf:resource="http://rdf.rhea-db.org/52126"/>
+<rh:bidirectionalReaction rdf:resource="http://rdf.rhea-db.org/52127"/>
+<rh:status rdf:resource="http://rdf.rhea-db.org/Approved"/>
+<rh:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rh:isChemicallyBalanced>
+<rh:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</rh:isTransport>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/19965576"/>
+<rh:side rdf:resource="http://rdf.rhea-db.org/52124_L"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.rhea-db.org/17149">
+<rdfs:subClassOf rdf:resource="http://rdf.rhea-db.org/Reaction"/>
+<rh:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">17149</rh:id>
+<rh:accession>RHEA:17149</rh:accession>
+<rdfs:label>an organic molecule + O2 + reduced [NADPH--hemoprotein reductase] = an alcohol + H(+) + H2O + oxidized [NADPH--hemoprotein reductase]</rdfs:label>
+<rh:equation>an organic molecule + O2 + reduced [NADPH--hemoprotein reductase] = an alcohol + H(+) + H2O + oxidized [NADPH--hemoprotein reductase]</rh:equation>                                                                                                                                                            <rh:htmlEquation>an organic molecule + O&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt; + reduced [NADPH&amp;#8212;hemoprotein reductase] = an alcohol + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; + H&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt;O + oxidized [NADPH&amp;#8212;hemoprotein reductase]</rh:htmlEquation>
+<rh:directionalReaction rdf:resource="http://rdf.rhea-db.org/17150"/>
+<rh:directionalReaction rdf:resource="http://rdf.rhea-db.org/17151"/>
+<rh:bidirectionalReaction rdf:resource="http://rdf.rhea-db.org/17152"/>
+<rh:status rdf:resource="http://rdf.rhea-db.org/Approved"/>
+<rh:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rh:isChemicallyBalanced>
+<rh:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</rh:isTransport>
+<rh:ec rdf:resource="http://purl.uniprot.org/enzyme/1.14.14.1"/>
+<rdfs:seeAlso rdf:resource="http://purl.obolibrary.org/obo/GO_0070330"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/13426111"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/187601"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/3415241"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/434823"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/5132997"/>
+<rh:side rdf:resource="http://rdf.rhea-db.org/17149_L"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.rhea-db.org/17151">
+<rdfs:subClassOf rdf:resource="http://rdf.rhea-db.org/DirectionalReaction"/>
+<rh:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">17151</rh:id>
+<rh:accession>RHEA:17151</rh:accession>
+<rdfs:label>an alcohol + H(+) + H2O + oxidized [NADPH--hemoprotein reductase] =&gt; an organic molecule + O2 + reduced [NADPH--hemoprotein reductase]</rdfs:label>
+<rh:equation>an alcohol + H(+) + H2O + oxidized [NADPH--hemoprotein reductase] =&gt; an organic molecule + O2 + reduced [NADPH--hemoprotein reductase]</rh:equation>
+<rh:htmlEquation>an alcohol + H&lt;small&gt;&lt;sup&gt;+&lt;/sup&gt;&lt;/small&gt; + H&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt;O + oxidized [NADPH&amp;#8212;hemoprotein reductase] =&gt; an organic molecule + O&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt; + reduced [NADPH&amp;#8212;hemoprotein reductase]</rh:htmlEquation>
+<rh:status rdf:resource="http://rdf.rhea-db.org/Approved"/>
+<rh:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rh:isChemicallyBalanced>
+<rh:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</rh:isTransport>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/13426111"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/187601"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/3415241"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/434823"/>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/5132997"/>
+<rh:products rdf:resource="http://rdf.rhea-db.org/17149_L"/>
+<rh:substrates rdf:resource="http://rdf.rhea-db.org/17149_R"/>
+</rdf:Description>
+<rdf:Description rdf:about="http://rdf.rhea-db.org/48633">
+<rdfs:subClassOf rdf:resource="http://rdf.rhea-db.org/DirectionalReaction"/>
+<rh:id rdf:datatype="http://www.w3.org/2001/XMLSchema#long">48633</rh:id>
+<rh:accession>RHEA:48633</rh:accession>
+<rdfs:label>(5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate =&gt; 5-oxo-(6E,8Z,11Z,14Z)-eicosatetraenoate + H2O</rdfs:label>
+<rh:equation>(5S)-hydroperoxy-(6E,8Z,11Z,14Z)-eicosatetraenoate =&gt; 5-oxo-(6E,8Z,11Z,14Z)-eicosatetraenoate + H2O</rh:equation>
+<rh:htmlEquation>(5&lt;i&gt;S&lt;/i&gt;)-hydroperoxy-(6&lt;i&gt;E&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,14&lt;i&gt;Z&lt;/i&gt;)-eicosatetraenoate =&gt; 5-oxo-(6&lt;i&gt;E&lt;/i&gt;,8&lt;i&gt;Z&lt;/i&gt;,11&lt;i&gt;Z&lt;/i&gt;,14&lt;i&gt;Z&lt;/i&gt;)-eicosatetraenoate + H&lt;small&gt;&lt;sub&gt;2&lt;/sub&gt;&lt;/small&gt;O</rh:htmlEquation>
+<rh:status rdf:resource="http://rdf.rhea-db.org/Approved"/>
+<rh:isChemicallyBalanced rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</rh:isChemicallyBalanced>
+<rh:isTransport rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">false</rh:isTransport>
+<rh:citation rdf:resource="http://rdf.ncbi.nlm.nih.gov/pubmed/21068195"/>
+<rh:substrates rdf:resource="http://rdf.rhea-db.org/48632_L"/>
+<rh:products rdf:resource="http://rdf.rhea-db.org/48632_R"/>
+<rdfs:subClassOf rdf:resource="http://rdf.rhea-db.org/55557"/>
+</rdf:Description>
+</rdf:RDF>

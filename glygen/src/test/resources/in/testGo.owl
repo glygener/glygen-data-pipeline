@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.obolibrary.org/obo/go.owl" xmlns:oboInOwl="http://www.geneontology.org/formats/oboInOwl#" xmlns:obo="http://purl.obolibrary.org/obo/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0030424">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>axon</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0043005"/>
+<obo:IAO_0000115>The long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0005737">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>cytoplasm</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044424"/>
+<obo:IAO_0000115>All of the contents of a cell excluding the plasma membrane and nucleus, but including other subcellular structures.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0043005">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>neuron projection</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0097458"/>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0120025"/>
+<obo:IAO_0000115>A prolongation or process extending from a nerve cell, e.g. an axon or dendrite.</obo:IAO_0000115>
+<oboInOwl:hasRelatedSynonym>nerve fiber</oboInOwl:hasRelatedSynonym>
+<oboInOwl:hasRelatedSynonym>neurite</oboInOwl:hasRelatedSynonym>
+<oboInOwl:hasExactSynonym>neuronal cell projection</oboInOwl:hasExactSynonym>
+<oboInOwl:hasExactSynonym>neuron process</oboInOwl:hasExactSynonym>
+<oboInOwl:hasExactSynonym>neuron protrusion</oboInOwl:hasExactSynonym>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0097458">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>neuron part</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044464"/>
+<obo:IAO_0000115>Any constituent part of a neuron, the basic cellular unit of nervous tissue. A typical neuron consists of a cell body (often called the soma), an axon, and dendrites. Their purpose is to receive, conduct, and transmit impulses in the nervous system.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0120025">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>plasma membrane bounded cell projection</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0042995"/>
+<obo:IAO_0000115>A prolongation or process extending from a cell and that is bounded by plasma membrane, e.g. a cilium, lamellipodium, or axon.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0044464">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>cell part</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0005575"/>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044464#part-of-parent-5623"/>
+<obo:IAO_0000115>Any constituent part of a cell, the basic structural and functional unit of all organisms.</obo:IAO_0000115>
+<oboInOwl:hasExactSynonym>cellular subcomponent</oboInOwl:hasExactSynonym>
+<oboInOwl:hasRelatedSynonym>protoplast</oboInOwl:hasRelatedSynonym>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0042995">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>cell projection</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044464"/>
+<obo:IAO_0000115>A prolongation or process extending from a cell, e.g. a flagellum or axon.</obo:IAO_0000115>
+<oboInOwl:hasRelatedSynonym>cell process</oboInOwl:hasRelatedSynonym>
+<oboInOwl:hasRelatedSynonym>cellular process</oboInOwl:hasRelatedSynonym>
+<oboInOwl:hasExactSynonym>cellular projection</oboInOwl:hasExactSynonym>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0005737">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>cytoplasm</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044424"/>
+<obo:IAO_0000115>All of the contents of a cell excluding the plasma membrane and nucleus, but including other subcellular structures.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0030424">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>axon</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0043005"/>
+<obo:IAO_0000115>The long process of a neuron that conducts nerve impulses, usually away from the cell body to the terminals and varicosities, which are sites of storage and release of neurotransmitter.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0044424">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>intracellular part</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044464"/>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044424#part-of-parent-5622"/>
+<obo:IAO_0000115>Any constituent part of the living contents of a cell; the matter contained within (but not including) the plasma membrane, usually taken to exclude large vacuoles and masses of secretory or ingested material. In eukaryotes it includes the nucleus and cytoplasm.</obo:IAO_0000115>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0044464">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>cell part</rdfs:label>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0005575"/>
+<rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/GO_0044464#part-of-parent-5623"/>
+<obo:IAO_0000115>Any constituent part of a cell, the basic structural and functional unit of all organisms.</obo:IAO_0000115>
+<oboInOwl:hasExactSynonym>cellular subcomponent</oboInOwl:hasExactSynonym>
+<oboInOwl:hasRelatedSynonym>protoplast</oboInOwl:hasRelatedSynonym>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.obolibrary.org/obo/GO_0005575">
+<rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+<rdfs:label>cellular_component</rdfs:label>
+<obo:IAO_0000115>A location, relative to cellular compartments and structures, occupied by a macromolecular machine when it carries out a molecular function. There are two ways in which the gene ontology describes locations of gene products: (1) relative to cellular structures (e.g., cytoplasmic side of plasma membrane) or compartments (e.g., mitochondrion), and (2) the stable macromolecular complexes of which they are parts (e.g., the ribosome).</obo:IAO_0000115>
+<oboInOwl:hasExactSynonym>cell or subcellular entity</oboInOwl:hasExactSynonym>
+<oboInOwl:hasExactSynonym>cellular component</oboInOwl:hasExactSynonym>
+<oboInOwl:hasRelatedSynonym>subcellular entity</oboInOwl:hasRelatedSynonym>
+<oboInOwl:replaces rdf:resource="http://purl.obolibrary.org/obo/GO_0008372"/>
+</rdf:Description>
+</rdf:RDF>

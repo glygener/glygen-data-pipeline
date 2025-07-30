@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<rdf:RDF xmlns="http://purl.uniprot.org/core/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" xmlns:owl="http://www.w3.org/2002/07/owl#" xmlns:skos="http://www.w3.org/2004/02/skos/core#" xmlns:bibo="http://purl.org/ontology/bibo/" xmlns:foaf="http://xmlns.com/foaf/0.1/" xmlns:void="http://rdfs.org/ns/void#" xmlns:sd="http://www.w3.org/ns/sparql-service-description#" xmlns:faldo="http://biohackathon.org/resource/faldo#">
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/90">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Brain capillary</skos:prefLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/95">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Brain</skos:prefLabel>
+<skos:altLabel>Cerebral</skos:altLabel>
+<skos:altLabel>Cerebrum</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/136">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Cervix carcinoma</skos:prefLabel>
+<skos:altLabel>Cervical carcinoma</skos:altLabel>
+<skos:altLabel>Hela</skos:altLabel>
+<skos:altLabel>Hela cells</skos:altLabel>
+<skos:altLabel>Uterine cervix carcinoma</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/309">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Eye</skos:prefLabel>
+<skos:altLabel>Eyeball</skos:altLabel>
+<skos:altLabel>Ocular</skos:altLabel>
+<skos:altLabel>Oculus</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/460">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Hippocampus</skos:prefLabel>
+<skos:altLabel>Brain hippocampus</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/125">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Cerebellum</skos:prefLabel>
+<skos:altLabel>Cerebellar</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/549">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Leukocyte</skos:prefLabel>
+<skos:altLabel>Leucocyte</skos:altLabel>
+<skos:altLabel>White blood cell</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/95">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Brain</skos:prefLabel>
+<skos:altLabel>Cerebral</skos:altLabel>
+<skos:altLabel>Cerebrum</skos:altLabel>
+</rdf:Description>
+<rdf:Description rdf:about="http://purl.uniprot.org/tissues/564">
+<rdf:type rdf:resource="http://purl.uniprot.org/core/Tissue"/>
+<skos:prefLabel>Liver</skos:prefLabel>
+<skos:altLabel>Hepatic</skos:altLabel>
+</rdf:Description>
+</rdf:RDF>

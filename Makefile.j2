@@ -1,0 +1,112 @@
+MAKEFLAGS += --warn-undefined-variables
+SHELL := bash
+ROOT_DIR := $(shell pwd)
+
+# Define variables for paths
+GLYGEN_DIRECTORY := {{ configuration.glygen_directory }}
+GLYGEN_JAR := {{ configuration.glygen_jar }}
+INPUT_DIRECTORY := {{ configuration.input_directory }}
+OUTPUT_DIRECTORY := {{ configuration.output_directory }}
+NEO4J_DIR := ./neo4j/neo4j-community
+REACTOME_DIR := {{ configuration.reactome_directory }}
+JAVA_XMS ?= {{ configuration.java_xms }}
+JAVA_XMX ?= {{ configuration.java_xmx }}
+
+.PHONY: generate-glygenjar
+
+.PRECIOUS: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
+generate-glygenjar: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
+
+$(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR):
+	cd $(GLYGEN_DIRECTORY) && mvn clean package -DskipTests -U
+
+.PHONY: download-files
+
+download-files: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
+	mkdir -p $(INPUT_DIRECTORY)
+	java -cp $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenToolMain $(INPUT_DIRECTORY)
+
+.PHONY: import-triplets
+
+.PRECIOUS: import-triplets
+.PRECIOUS: $(INPUT_DIRECTORY)/%.rdf
+
+import-triplets: {% for triplet in data.triplets %} $(INPUT_DIRECTORY)/{{ triplet.db }}/{{ triplet.db }}.lock {% endfor %}
+
+{% for triplet in data.triplets %}
+$(INPUT_DIRECTORY)/{{ triplet.rdf }}:
+	mkdir -p $(INPUT_DIRECTORY)
+	$(SHELL) ./scripts/download_files.sh $(INPUT_DIRECTORY)/ $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) $@
+
+$(INPUT_DIRECTORY)/{{ triplet.db }}/{{ triplet.db }}.lock: $(INPUT_DIRECTORY)/{{ triplet.rdf }}
+	mkdir -p $(INPUT_DIRECTORY)/{{ triplet.db }}
+	tdbloader --loc $(INPUT_DIRECTORY)/{{ triplet.db }} $<
+	touch $@
+{% endfor %}
+
+$(REACTOME_DIR)/reactome.graphdb.tgz:
+	mkdir -p $(REACTOME_DIR)
+	curl "https://reactome.org/download/current/reactome.graphdb.tgz" >> $@
+
+$(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz
+	tar -xzf $< -C $(REACTOME_DIR)
+	touch $@
+
+.PHONY: setup-reactome
+
+setup-reactome: ./neo4j/data/databases/graph.db/reactome.lock
+./neo4j/data/databases/graph.db/reactome.lock: $(REACTOME_DIR)/graph.db/reactome.lock
+	mkdir -p ./neo4j/conf/
+	mkdir -p ./neo4j/data/databases/
+	cp -rf conf/neo4j.conf ./neo4j/conf/
+	rm -rf ./neo4j/data/databases/graph.db
+	cp -rf $(REACTOME_DIR)/graph.db ./neo4j/data/databases/graph.db
+
+
+
+.PHONY: generate-data
+generate-data: $(OUTPUT_DIRECTORY)/data_generation.lock
+
+$(OUTPUT_DIRECTORY)/data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
+	$(MAKE) setup-reactome
+	$(MAKE) import-triplets
+	mkdir -p $(OUTPUT_DIRECTORY)/{{ configuration.release_date }}
+	java -Xms4g -Xmx24g \
+	-cp $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlygenDataGeneratorMain \
+	-input $(GLYGEN_DIRECTORY) \
+	-output $(OUTPUT_DIRECTORY)/{{ configuration.release_date }} \
+	-configFile $(GLYGEN_DIRECTORY)/src/main/resources/glygenConfig.properties
+	touch $@
+
+.PHONY: generate-other-data
+generate-other-data: $(OUTPUT_DIRECTORY)/other_data_generation.lock
+
+$(OUTPUT_DIRECTORY)/other_data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
+	mkdir -p $(OUTPUT_DIRECTORY)/{{ configuration.release_date }}
+	$(MAKE) setup-reactome
+	$(MAKE) import-triplets
+	cd $(GLYGEN_DIRECTORY) && java -Xms4g -Xmx24g \
+	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/{{ configuration.release_date }}
+	touch $@
+
+$(OUTPUT_DIRECTORY)/{{ configuration.release_date }}:
+	mkdir -p $@
+
+.PHONY: all
+all:
+	$(MAKE) generate-glygenjar #Calling individual goals to be able to import triplets simultaneously
+	$(MAKE) download-files #Calling individual goals to be able to import triplets simultaneously
+	$(MAKE) import-triplets
+	$(MAKE) generate-data
+	$(MAKE) generate-other-data
+
+.PHONY: clean
+
+clean:
+	rm -rfv $(INPUT_DIRECTORY)
+	rm -rfv $(GLYGEN_DIRECTORY)/target
+	rm -rfv $(OUTPUT_DIRECTORY)/data_generation.lock
+	rm -rfv $(OUTPUT_DIRECTORY)/other_data_generation.lock
+	rm -rfv $(REACTOME_DIR)
+	rm -rfv ./logs
+	rm -rfv ./neo4j
