@@ -3,13 +3,16 @@
 
 ## TLDR;
 
+
 **Make sure the docker service is running before execute this pipeline.**
 
-Just type:
 
-```bash
-./run.sh generate-data
-```
+Clone the repository
+1. `git clone https://github.com/souzadevinicius/glygen-data-pipeline.git`
+2. `cd glygen-data-pipeline.git`
+3. `./run.sh generate-data`
+
+---
 
 - [Glygen Data Generation](#glygen-data-generation)
   - [TLDR;](#tldr)
