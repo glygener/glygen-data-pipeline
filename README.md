@@ -9,7 +9,7 @@
 
 Clone the repository
 1. `git clone https://github.com/souzadevinicius/glygen-data-pipeline.git`
-2. `cd glygen-data-pipeline.git`
+2. `cd glygen-data-pipeline`
 3. `./run.sh generate-data`
 
 ---
