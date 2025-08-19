@@ -27,6 +27,7 @@ services:
       - $PWD/neo4j/logs:/logs
       - $PWD/conf/:/conf/
       - $PWD/neo4j/import:/import
+      - $PWD/scripts:/scripts
     entrypoint: ["/scripts/neo4j_entrypoint.sh"]
     environment:
       - NEO4J_ACCEPT_LICENSE_AGREEMENT=yes
