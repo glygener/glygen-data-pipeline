@@ -9,7 +9,6 @@ services:
       - ./neo4j:/neo4j
       - $PWD/reactome/:/reactome
     working_dir: /
-    command: make setup-reactome
     networks:
       - glygennet
 

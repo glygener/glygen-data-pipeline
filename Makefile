@@ -10,7 +10,7 @@ OUTPUT_DIRECTORY := ./releases/
 NEO4J_DIR := ./neo4j/neo4j-community
 REACTOME_DIR := reactome
 JAVA_XMS ?= 8g
-JAVA_XMX ?= 32g
+JAVA_XMX ?= 16g
 
 .PHONY: generate-glygenjar
 
@@ -181,7 +181,7 @@ $(INPUT_DIRECTORY)/dbDanio/dbDanio.lock: $(INPUT_DIRECTORY)/UP000000437_7955_uni
 
 $(REACTOME_DIR)/reactome.graphdb.tgz:
 	mkdir -p $(REACTOME_DIR)
-	curl "https://reactome.org/download/current/reactome.graphdb.tgz" >> $@
+	curl --retry 3 --retry-delay 3 --retry-max-time 0 --retry-all-errors -C - -o "$@" "https://reactome.org/download/current/reactome.graphdb.tgz"
 
 $(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz
 	tar -xzf $< -C $(REACTOME_DIR)

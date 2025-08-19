@@ -46,7 +46,7 @@ $(INPUT_DIRECTORY)/{{ triplet.db }}/{{ triplet.db }}.lock: $(INPUT_DIRECTORY)/{{
 
 $(REACTOME_DIR)/reactome.graphdb.tgz:
 	mkdir -p $(REACTOME_DIR)
-	curl "https://reactome.org/download/current/reactome.graphdb.tgz" >> $@
+	curl --retry 3 --retry-delay 3 --retry-max-time 0 --retry-all-errors -C - -o "$@" "https://reactome.org/download/current/reactome.graphdb.tgz"
 
 $(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz
 	tar -xzf $< -C $(REACTOME_DIR)

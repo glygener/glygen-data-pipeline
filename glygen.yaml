@@ -6,7 +6,7 @@ configuration:
   glygen_jar: "glygen-2024.6-SNAPSHOT.jar"
   reactome_directory: "reactome"
   java_xms: "8g"
-  java_xmx: "32g"
+  java_xmx: "16g"
 
 data:
   triplets:

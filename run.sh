@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
-
-docker run -v "$(pwd -W):/work" -w "/work" --rm --network unpfwglygen_glygennet glygen "$@"
+export MSYS_NO_PATHCONV=1
+docker run -v $PWD/:/work -w /work --rm --network unpfwglygen_glygennet glygen "$@"
