@@ -1,0 +1,232 @@
+hcv1a: UP000000518_63746
+hcv1b: UP000008095_11116
+sars: UP000000354_694009
+sars_2: UP000464024_2697049
+
+
+#create directory 'in'
+
+mkdir in
+
+##copy following rdfs and go.owl from https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/ 
+
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/databases.rdf.xz" > databases.rdf.xz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/diseases.rdf.xz" > diseases.rdf.xz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/enzyme.rdf.xz" > enzyme.rdf.xz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/keywords.rdf.xz" > keywords.rdf.xz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/locations.rdf.xz" > locations.rdf.xz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/tissues.rdf.xz" > tissues.rdf.xz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/rdf/go.owl.xz" > go.owl.xz
+
+dir | find  "File(s)"
+#files - 7
+
+##copy fasta and additional fasta from reference_proteome/Eukaryota & Viruses. HCV1b & SARS-CoV-2 do not have ref proteomes
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000005640/UP000005640_9606_additional.fasta.gz" > UP000005640_9606_additional.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000005640/UP000005640_9606.fasta.gz" > UP000005640_9606.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000589/UP000000589_10090_additional.fasta.gz" > UP000000589_10090_additional.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000589/UP000000589_10090.fasta.gz" > UP000000589_10090.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002494/UP000002494_10116_additional.fasta.gz" > UP000002494_10116_additional.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002494/UP000002494_10116.fasta.gz" > UP000002494_10116.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000803/UP000000803_7227_additional.fasta.gz" > UP000000803_7227_additional.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000803/UP000000803_7227.fasta.gz" > UP000000803_7227.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002311/UP000002311_559292_additional.fasta.gz" > UP000002311_559292_additional.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002311/UP000002311_559292.fasta.gz" > UP000002311_559292.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002195/UP000002195_44689_additional.fasta.gz" > UP000002195_44689_additional.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000002195/UP000002195_44689.fasta.gz" > UP000002195_44689.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Viruses/UP000000518/UP000000518_63746.fasta.gz" > UP000000518_63746.fasta.gz
+curl "https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Viruses/UP000000354/UP000000354_694009.fasta.gz" > UP000000354_694009.fasta.gz
+
+
+## download as fasta(canonical)
+curl "https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=accession%3AP26662" > UP000008095_11116.fasta
+curl "https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=%28proteome%3AUP000464024%29" > UP000464024_2697049.fasta
+
+
+## download as RDF.
+curl "https://rest.uniprot.org/uniprotkb/stream?format=rdf&query=%28proteome%3AUP000464024%29" > UP000464024_2697049_uniprot_proteome.rdf
+
+#files - (7+14+3) 24
+
+##get gene co-ordinates from uniprot service. Note: N/A for Viruses: HCV(63746, 11116), SARS(694009, 2697049) & social amoeba
+curl -X GET --header "Accept:application/json" "https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=9606" > UP000005640_9606.coordinates.json
+curl -X GET --header "Accept:application/json" "https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=10090" > UP000000589_10090.coordinates.json
+curl -X GET --header "Accept:application/json" "https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=10116" > UP000002494_10116.coordinates.json
+curl -X GET --header "Accept:application/json" "https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=7227" > UP000000803_7227.coordinates.json
+curl -X GET --header "Accept:application/json" "https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=559292" > UP000002311_559292.coordinates.json
+
+#files - (24+5) 29
+
+##download files from ensembl ftp
+curl "https://ftp.ensembl.org/pub/current_fasta/homo_sapiens/cds/Homo_sapiens.GRCh38.cds.all.fa.gz" > homo_sapiens.cds.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/homo_sapiens/pep/Homo_sapiens.GRCh38.pep.all.fa.gz" > homo_sapiens.pep.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/mus_musculus/cds/Mus_musculus.GRCm39.cds.all.fa.gz" > mus_musculus.cds.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/mus_musculus/pep/Mus_musculus.GRCm39.pep.all.fa.gz" > mus_musculus.pep.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/rattus_norvegicus/cds/Rattus_norvegicus.mRatBN7.2.cds.all.fa.gz" > rattus_norvegicus.cds.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/rattus_norvegicus/pep/Rattus_norvegicus.mRatBN7.2.pep.all.fa.gz" > rattus_norvegicus.pep.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/drosophila_melanogaster/cds/Drosophila_melanogaster.BDGP6.32.cds.all.fa.gz" > drosophila_melanogaster.cds.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/drosophila_melanogaster/pep/Drosophila_melanogaster.BDGP6.32.pep.all.fa.gz" > drosophila_melanogaster.pep.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/saccharomyces_cerevisiae/cds/Saccharomyces_cerevisiae.R64-1-1.cds.all.fa.gz" > saccharomyces_cerevisiae.cds.all.fa.gz
+curl "https://ftp.ensembl.org/pub/current_fasta/saccharomyces_cerevisiae/pep/Saccharomyces_cerevisiae.R64-1-1.pep.all.fa.gz" > saccharomyces_cerevisiae.pep.all.fa.gz
+curl "https://ftp.ensemblgenomes.ebi.ac.uk/pub/protists/current/fasta/dictyostelium_discoideum/cds/Dictyostelium_discoideum.dicty_2.7.cds.all.fa.gz" > dictyostelium_discoideum.cds.all.fa.gz
+curl "https://ftp.ensemblgenomes.ebi.ac.uk/pub/protists/current/fasta/dictyostelium_discoideum/pep/Dictyostelium_discoideum.dicty_2.7.pep.all.fa.gz" > dictyostelium_discoideum.pep.all.fa.gz
+
+dir | find  "File(s)"
+
+#files - (29+12) 41
+
+##download rhea rdf https://ftp.ebi.ac.uk/pub/databases/rhea/rdf/rhea.rdf.gz. FTP site chaged from 2021_02
+curl "https://ftp.expasy.org/databases/rhea/rdf/rhea.rdf.gz" > rhea.rdf.gz
+
+
+##get Proteome RDFs
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000005640%29" > UP000005640_9606_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000000589%29" > UP000000589_10090_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000002494%29" > UP000002494_10116_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000008095%29" > UP000008095_11116_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000000354%29" > UP000000354_694009_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000000803%29" > UP000000803_7227_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000002311%29" > UP000002311_559292_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000002195%29" > UP000002195_44689_uniprot_proteome.rdf.gz
+curl "https://rest.uniprot.org/uniprotkb/P27958.rdf" > UP000000518_63746_uniprot_proteome.rdf
+
+#files - (41+9) 51
+
+# download latest https://reactome.org/download-data => Identifier mapping files => UniProt to All reactions
+
+curl "https://reactome.org/download/current/UniProt2ReactomeReactions.txt" > UniProt2ReactomeReactions.txt
+
+findstr /c:"Homo sapiens" UniProt2ReactomeReactions.txt >> homo_reactions.txt
+findstr /c:"Mus musculus" UniProt2ReactomeReactions.txt >> mus_reactions.txt
+findstr /c:"Rattus norvegicus" UniProt2ReactomeReactions.txt >> rattus_reactions.txt
+findstr /c:"Drosophila melanogaster" UniProt2ReactomeReactions.txt >> drosophila_reactions.txt
+findstr /c:"Saccharomyces cerevisiae" UniProt2ReactomeReactions.txt >> saccharomyces_reactions.txt
+findstr /c:"Dictyostelium discoideum" UniProt2ReactomeReactions.txt >> dictyostelium_reactions.txt
+
+dir | find  "File(s)"
+
+#files - (51+7) 58
+
+#get dbSNP data. Note: ATM not available by variation api for Viruses: HCV(63746, 11116) & social amoeba
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=2697049" > UP000464024_2697049.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=694009" > UP000000354_694009.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=559292" > UP000002311_559292.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=7227" > UP000000803_7227.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=44689" > UP000002195_44689.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=10116" > UP000002494_10116.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=10090" > UP000000589_10090.dbSnp.xml
+curl -X GET --header "Accept:application/xml" "https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=9606" > UP000005640_9606.dbSnp.xml
+
+#files - (58+8) 66
+
+#get intact fasta
+curl "https://ftp.ebi.ac.uk/pub/databases/intact/current/various/intact.fasta" > intact.fasta
+findstr /c:">INTACT" intact.fasta >> intAct.txt
+
+##files - 68
+#unzip 7 + 35 files
+
+Note: HCV1a, only P27958 is needed. Remove P0C045 from fasta UP000000518, before creating localdb
+
+##files - 110
+
+##create local tdb
+set JENAROOT=C:\dev\apache-jena-3.14.0
+set JENAROOT=C:\dev\apache-jena-4.5.0
+%JENAROOT%\bat\tdbloader.bat --loc dbHomo UP000005640_9606_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbMus UP000000589_10090_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbRat UP000002494_10116_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbDroso UP000000803_7227_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbSacc UP000002311_559292_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbDicty UP000002195_44689_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbHcv1a UP000000518_63746_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbHcv1b UP000008095_11116_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbSars UP000000354_694009_uniprot_proteome.rdf
+%JENAROOT%\bat\tdbloader.bat --loc dbSarsV2 UP000464024_2697049_uniprot_proteome.rdf
+
+
+#files - 120 items
+
+## get gene info from sql when WFH
+select gene_name, ensg_id, chromosome, seq_region_strand, seq_region_start, seq_region_end
+from ensembl_gene where tax_id = 9606 and gene_name is not null; -- > export into text format, no header, 9606_gene.tsv
+
+select gene_name, ensg_id, chromosome, seq_region_strand, seq_region_start, seq_region_end
+from ensembl_gene where tax_id = 10090 and gene_name is not null; -- > export into text format, no header, 10090_gene.tsv
+
+select gene_name, ensg_id, chromosome, seq_region_strand, seq_region_start, seq_region_end
+from ensembl_gene where tax_id = 10116 and gene_name is not null; -- > export into text format, no header, 10116_gene.tsv
+
+select gene_name, ensg_id, chromosome, seq_region_strand, seq_region_start, seq_region_end
+from ensembl_gene where tax_id = 559292 and gene_name is not null; -- > export into text format, no header, 559292_gene.tsv
+
+
+##if applicable download latest Reactome Graph Database
+
+curl "https://reactome.org/download/current/reactome.graphdb.tgz" >> reactome.graphdb.tgz
+
+##create local reactome neo4j db, ONLY IF version has changed
+Start Neo4j desktop app
+Create New Project, named Reactome_<v**>
+Create a local Graph using 'Add Graph' option [below 'Add Application']
+	- set name to 'ReactomeDBv**', set password to 'reactome'
+Note: use neo4j 3.5.17; 4.0 has different db structure.
+Click Start on graph
+	- DB has 'Active' status, 0 nodes & 0 relationships
+Stop graph
+Copy contents of reactome.graphdb.tar\reactome.graphdb.<v**>\ to \Users\<user_name>\.Neo4jDesktop\neo4jDatabases\database******\installation-3.4.9\data\databases\graph.db
+Click Start on graph. Number of nodes & relationships should be > 0
+	- v69: 1,930,515 nodes (84 labels) & 8,581,885 relationships (68 types)
+	- v70: 1,955,946 nodes (84 labels) & 8,698,698 relationships (68 types)
+	- v71: 1,920,234 nodes (84 labels) & 8,541,689 relationships (68 types)
+	- v72: 2,236,096 nodes (84 labels) & 9,459,523 relationships (68 types)
+	- v73: 2,273,136 nodes (87 labels) & 9,567,231 relationships (68 types) [released 17 jun'20]
+	- v75: 2,252,521 nodes (87 labels) & 9,427,968 relationships (68 types) [released 02 dec'20]
+	with latest UI, get stats from relate.dbms.json
+	- v76: 2,234,073 nodes (87 labels) & 9,247,494 relationships (68 types) [released 21 mar'21]
+	- v77: 2,307,858 nodes (90 labels) & 9,586,164 relationships (69 types) [released 09 jun'21]
+	- v78: 2,286,285 nodes (93 labels) & 9,519,142 relationships (72 types) [released 10 oct'21]
+	- v79: is available, but required lower version than 3.5.17
+	- v80: 2,339,168 nodes (93 labels) & 9,681,750 relationships (72 types) [released 07 apr'22]
+	- v81: 2,415,586 nodes (93 labels) & 10,088,313 relationships (72 types) [released 14 jun'22]
+	- v82: 2,385,484 nodes (93 labels) & 9,993,119 relationships (72 types) [released 15 sep'22]
+	- v83: 2,442,415 nodes (93 labels) & 10,210,779 relationships (72 types) [released 30 nov'22]
+
+Run sample query with a valid <react_id> [eg: 'R-RNO-202248'] -> should return 4 records
+	MATCH (r:ReactionLikeEvent{stId:'R-RNO-202248'})-[t1]->
+		  (pe:PhysicalEntity) RETURN DISTINCT r.stId AS Reaction, type(t1) AS Type,
+		  pe.stId as Participant, pe.displayName AS DisplayName order by Type
+
+Steps for reactome from v80 which works only with neo4j 4.4.5+
+1. In C:\Users\pvasudev\.Neo4jDesktop\neo4jDatabases\<database>\installation-4.4.5\conf\neo4j.conf replace #dbms.default_database=neo4j with
+dbms.default_database=graph.db
+dbms.recovery.fail_on_missing_files=false
+unsupported.dbms.tx_log.fail_on_corrupted_log_files=false
+
+
+## generate 10 data sets & 6 dbSNP tsv
+java uk.ac.ebi.uniprot.glygen.GlygenDataGeneratorMain neo4j@bolt://localhost:7687/graph.db sptr/uni2read@swpread
+
+
+Using cygwin copy 32 files to C:\cygwin64\home\pvasudev\YYYY_NN from there to /homes/pvasudev/glygen/release/
+
+# on login.ebi.ac.uk
+> cd /homes/pvasudev/glygen/release/
+> chmod 777 *
+
+on codon-login,
+> dm
+> rsync login.ebi.ac.uk:/homes/pvasudev/glygen/release/* glygen/release
+
+> T become trembl_ftpadmin ('become ftpadmin' permission revoked for all users as of Dec'19)
+> cd /nfs/ftp/public/contrib/glygen/
+
+# Copy datasets & other files to release directory
+remove symlink => rm current_release
+				  mv 2022_04/ previous_releases/
+				  mkdir 2022_05
+				  mv /homes/pvasudev/glygen/release/* 2022_05/
+create symlink => ln -s 2022_05 current_release
+
+Verify http://ftp.ebi.ac.uk/pub/contrib/glygen/current_release/ is latest data, send email
+

@@ -17,9 +17,6 @@ docker network inspect glygennet >/dev/null 2>&1 || \
 log "Building glygen image locally..."
 docker compose build glygen
 
-log "Building glygen image locally..."
-docker compose build glygen
-
 log "Starting glygen service..."
 docker compose up glygen -d
 
