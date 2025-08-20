@@ -9,7 +9,6 @@ log() {
 run() {
     ./run.sh "$@"
 }
-rm -rf reactome/
 
 log "Ensuring network exists..."
 docker network inspect glygennet >/dev/null 2>&1 || \

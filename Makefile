@@ -180,6 +180,7 @@ $(INPUT_DIRECTORY)/dbDanio/dbDanio.lock: $(INPUT_DIRECTORY)/UP000000437_7955_uni
 
 
 $(REACTOME_DIR)/reactome.graphdb.tgz:
+	rm -rf $(REACTOME_DIR)
 	mkdir -p $(REACTOME_DIR)
 	curl --retry 3 --retry-delay 3 --retry-max-time 0 --retry-all-errors -C - -o "$@" "https://reactome.org/download/current/reactome.graphdb.tgz"
 
