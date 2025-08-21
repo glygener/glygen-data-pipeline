@@ -9,8 +9,8 @@ INPUT_DIRECTORY := ./glygen/in
 OUTPUT_DIRECTORY := ./releases/
 NEO4J_DIR := ./neo4j/neo4j-community
 REACTOME_DIR := reactome
-JAVA_XMS ?= 8g
-JAVA_XMX ?= 16g
+JAVA_XMS ?= 12g
+JAVA_XMX ?= 32g
 
 .PHONY: generate-glygenjar
 
@@ -207,7 +207,7 @@ $(OUTPUT_DIRECTORY)/data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JA
 	$(MAKE) setup-reactome
 	$(MAKE) import-triplets
 	mkdir -p $(OUTPUT_DIRECTORY)/2025_06
-	java -Xms4g -Xmx24g \
+	java -Xms12g -Xmx32g \
 	-cp $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlygenDataGeneratorMain \
 	-input $(GLYGEN_DIRECTORY) \
 	-output $(OUTPUT_DIRECTORY)/2025_06 \
@@ -221,7 +221,7 @@ $(OUTPUT_DIRECTORY)/other_data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLY
 	mkdir -p $(OUTPUT_DIRECTORY)/2025_06
 	$(MAKE) setup-reactome
 	$(MAKE) import-triplets
-	cd $(GLYGEN_DIRECTORY) && java -Xms4g -Xmx24g \
+	cd $(GLYGEN_DIRECTORY) && java -Xms12g -Xmx32g \
 	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/2025_06
 	touch $@
 
