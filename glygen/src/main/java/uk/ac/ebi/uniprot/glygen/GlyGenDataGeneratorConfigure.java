@@ -1,6 +1,5 @@
 package uk.ac.ebi.uniprot.glygen;
 
-
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 import com.beust.jcommander.converters.CommaParameterSplitter;
@@ -22,8 +21,16 @@ public class GlyGenDataGeneratorConfigure {
     @Parameter(names = "-species", splitter = CommaParameterSplitter.class, description = "Species list or all")
     private List<String> species = new ArrayList<>();
 
-    private GlyGenDataGeneratorConfigure() {
+    @Parameter(names = "--neo4j-uri", description = "Neo4j connection URI")
+    private String neo4jUri = "bolt://neo4j:7687";
 
+    @Parameter(names = "--neo4j-user", description = "Neo4j username")
+    private String neo4jUser = "neo4j";
+
+    @Parameter(names = "--neo4j-password", description = "Neo4j password")
+    private String neo4jPassword = "reactome";
+
+    private GlyGenDataGeneratorConfigure() {
     }
 
     public static final GlyGenDataGeneratorConfigure fromCommandLine(String[] args) {
@@ -43,7 +50,20 @@ public class GlyGenDataGeneratorConfigure {
     }
 
     public String getReactomeDb() {
-        return "neo4j/reactome@bolt://neo4j:7687";
+        return String.format("%s/%s@%s", neo4jUser, neo4jPassword, neo4jUri);
+    }
+
+    // New method for driver-compatible connection string
+    public String getNeo4jConnectionString() {
+        return neo4jUri;
+    }
+
+    public String getNeo4jUser() {
+        return neo4jUser;
+    }
+
+    public String getNeo4jPassword() {
+        return neo4jPassword;
     }
 
     public String getConfigFile() {
@@ -61,5 +81,4 @@ public class GlyGenDataGeneratorConfigure {
     public String getOutputDir() {
         return outputDir;
     }
-
 }
