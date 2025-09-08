@@ -26,5 +26,8 @@ run make setup-reactome
 log "Starting neo4j service..."
 docker compose up neo4j -d --build
 
+log "Testing neo4j connection"
+run java -cp ./glygen/target/glygen-2024.6-SNAPSHOT.jar  uk.ac.ebi.uniprot.glygen.TestNeo4jConnection
+
 log "Generating data..."
 run make all
