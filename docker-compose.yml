@@ -1,5 +1,6 @@
 services:
   glygen:
+    image: glygen
     build:
       context: .
       dockerfile: Dockerfile
@@ -57,3 +58,4 @@ services:
 networks:
   glygennet:
     driver: bridge
+    external: true
