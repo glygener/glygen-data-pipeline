@@ -201,7 +201,7 @@ public class SequenceAppender implements DataAppender {
             while (cnt < seqIds.length) {
                 int i = 0;
                 Set<String> querySet = new HashSet<>();
-                while (i++ < 200 && cnt < seqIds.length) {
+                while (i++ < 50 && cnt < seqIds.length) {
                     querySet.add(seqIds[cnt++]);
                 }
                 Query query = UniProtQueryBuilder.accessions(querySet);

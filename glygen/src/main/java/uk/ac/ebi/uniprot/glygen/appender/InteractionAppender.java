@@ -192,7 +192,7 @@ public class InteractionAppender implements DataAppender {
             while (cnt < accIds.length) {
                 int i = 0;
                 Set<String> querySet = new HashSet<>();
-                while (i++ < 200 && cnt < accIds.length) {
+                while (i++ < 50 && cnt < accIds.length) {
                     querySet.add(accIds[cnt++]);
                 }
                 Query query = UniProtQueryBuilder.accessions(querySet);
