@@ -35,6 +35,7 @@ Clone the repository
   - [Glygen YAML Configuration Properties:](#glygen-yaml-configuration-properties)
     - [Configuration Section](#configuration-section)
     - [Data Section](#data-section)
+  - [EPITOPE Data Generation](#epitope-data-generation)
   - [Troubleshooting](#troubleshooting)
 
 
@@ -135,6 +136,18 @@ Removes generated files and directories.
 ### Data Section
 `data:`
   `triplets:` List of triplets that Glygen will use for generating data. Each triplet should be in RDF format. These files will be considered as dependencies during the `download-files` Makefile goal.
+
+
+## EPITOPE Data Generation
+After the release is complete, you can generate the epitope data using the `scripts/epitope.py` file.
+Simply call the script using the provided wrapper shell script, passing the release folder as the argument. In this case, the release folder is `releases/2025_06/`.
+
+```bash
+./run.sh python3 scripts/epitope.py releases/2025_06/
+```
+
+The epitope TSV files output will be generated in `releases/2025_06/epitope`
+
 
 ## Troubleshooting
 
