@@ -161,7 +161,6 @@ def generate_iedb(
     download_epitope_data(epitope_folder)
 
     for specie, specie_dict in config_data.items():
-        print(f"Processing {specie}")
         process_specie(specie, specie_dict, epitope_df, epitope_folder)
 
 
