@@ -1,14 +1,38 @@
 import argparse
-import glob
 import json
 import os
 from pathlib import Path
+from typing import Dict
 
 import pandas as pd
 import requests
 
 
-def recursive_flatten(df):
+def read_glygen_config_file(config_file: Path) -> Dict:
+    data = {}
+    current_species = None
+
+    with open(config_file, "r", encoding="utf-8") as f:
+        for line in f:
+            if line.startswith("#"):
+                continue
+            line = line.strip()
+            if not line or len(line.split("=", 1)) < 2:
+                continue
+            prefix, value = line.split("=", 1)
+            _, key = prefix.split(".", 1)
+            if key == "name":
+                current_species = value
+                data[current_species] = {}
+            else:
+                if not current_species:
+                    continue
+                data[current_species][key] = value
+
+    return data
+
+
+def recursive_flatten(df: pd.DataFrame) -> pd.DataFrame:
     """Flatten nested columns in the dataframe."""
     while True:
         list_cols = [
@@ -27,7 +51,7 @@ def recursive_flatten(df):
     return df
 
 
-def download_epitope_data(epitope_folder):
+def download_epitope_data(epitope_folder: Path):
     """Download epitope data from the given URL and save it in the epitope folder."""
 
     epitope_folder_path = Path(epitope_folder)
@@ -42,7 +66,7 @@ def download_epitope_data(epitope_folder):
     print(f"Downloaded epitope data to {epitope_file}")
 
 
-def load_epitope_data(epitope_folder):
+def load_epitope_data(epitope_folder: Path) -> pd.DataFrame:
     """Load epitope data from the 'epitope.json' file inside the given epitope folder."""
     epitope_file = Path(epitope_folder) / "epitope.json"
     if not epitope_file.exists():
@@ -58,89 +82,87 @@ def load_epitope_data(epitope_folder):
     return epitope_df
 
 
-def process_db_file(db_file, epitope_df, output_folder):
-    """Process each dbSNP file and merge it with epitope data, saving the results in the output folder."""
+def process_specie(
+    specie: str,
+    specie_dict: Dict,
+    epitope_df: pd.DataFrame,
+    output_folder: Path,
+) -> pd.DataFrame:
+    """Process species and extracts its epitope data, saving the results in the output folder."""
     try:
-        fname = Path(Path(db_file).stem).stem
-        print(f"Processing {fname}")
+        print(f"Processing {specie}")
 
-        output_file = Path(output_folder) / f"{fname.replace('dbSNP', 'IEDB')}.tsv"
-        first_chunk = True
-        chunk_iter = pd.read_csv(
-            db_file, compression="gzip", sep="\t", low_memory=False, chunksize=100000
+        output_file = Path(output_folder) / f"IEDB-{specie}.tsv"
+
+        taxid = specie_dict.get("taxId")
+        if not taxid or not taxid.isnumeric():
+            print(f"Error during the process of {specie}")
+            return
+
+        result_sub = epitope_df[epitope_df["taxid"] == int(taxid)]
+
+        result_sub = result_sub[
+            [
+                "accession",
+                "features.description",
+                "features.xrefs.name",
+                "features.xrefs.id",
+                "features.begin",
+                "features.end",
+                "features.epitopeSequence",
+                "features.evidences.code",
+                "features.evidences.source.name",
+                "features.evidences.source.id",
+            ]
+        ]
+
+        result_sub = result_sub.drop_duplicates()
+        result_sub = result_sub.rename(
+            columns={
+                "accession": "uniprotkb_accession",
+                "features.description": "epitope_description",
+                "features.xrefs.name": "data_source",
+                "features.xrefs.id": "iedb_id",
+                "features.begin": "begin_aa_pos",
+                "features.end": "end_aa_pos",
+                "features.epitopeSequence": "epitope_sequence",
+                "features.evidences.code": "evidence_code",
+                "features.evidences.source.name": "evidence_source",
+                "features.evidences.source.id": "evidence_source_id",
+            }
         )
 
-        for chunk in chunk_iter:
-            result = chunk.merge(
-                epitope_df,
-                left_on="uniprotkb_accession",
-                right_on="accession",
-                how="inner",
-            )
-
-            result_sub = result[
-                [
-                    "uniprotkb_accession",
-                    "gene_name",
-                    "protein_name",
-                    "features.description",
-                    "features.xrefs.name",
-                    "features.xrefs.id",
-                    "features.begin",
-                    "features.end",
-                    "features.epitopeSequence",
-                    "features.evidences.code",
-                    "features.evidences.source.name",
-                    "features.evidences.source.id",
-                ]
-            ]
-
-            result_sub = result_sub.drop_duplicates()
-            result_sub = result_sub.rename(
-                columns={
-                    "uniprotkb_accession": "uniprotkb_accession",
-                    "gene_name": "gene_name",
-                    "protein_name": "protein_name",
-                    "features.description": "epitope_description",
-                    "features.xrefs.name": "data_source",
-                    "features.xrefs.id": "iedb_id",
-                    "features.begin": "begin_aa_pos",
-                    "features.end": "end_aa_pos",
-                    "features.epitopeSequence": "epitope_sequence",
-                    "features.evidences.code": "evidence_code",
-                    "features.evidences.source.name": "evidence_source",
-                    "features.evidences.source.id": "evidence_source_id",
-                }
-            )
-
-            # Write to file, append after first chunk
-            if first_chunk:
-                result_sub.to_csv(output_file, sep="\t", index=False, mode="w")
-                first_chunk = False
-            else:
-                result_sub.to_csv(
-                    output_file, sep="\t", index=False, mode="a", header=False
-                )
+        # Write to file, append after first chunk
+        result_sub.to_csv(output_file, sep="\t", index=False, mode="w")
 
     except Exception as e:
-        print(f"Error processing {db_file}: {e}")
+        print(f"Error processing {specie}: {e}")
 
 
-def process_release_folder(release_folder, epitope_df):
-    """Process all dbSNP files in the release folder and save TSVs in the 'epitope' folder inside it."""
+def generate_iedb(
+    output_path: Path,
+    epitope_df: pd.DataFrame,
+    config_data: Dict,
+):
+    """
+    Generates IEDB epitope data files for multiple species based on the provided configuration and epitope DataFrame.
 
-    epitope_folder = Path(release_folder) / "epitope"
+    This function creates an output folder for epitope data, downloads necessary epitope resources,
+    and processes each species defined in the configuration data to generate species-specific epitope files.
+
+    Args:
+        output_path (Path): The base directory where the epitope data will be stored.
+        epitope_df (pd.DataFrame): DataFrame containing epitope information to be processed.
+        config_data (Dict): Dictionary mapping species names to their configuration dictionaries.
+
+    """
+    epitope_folder = Path(output_path) / "epitope"
 
     download_epitope_data(epitope_folder)
 
-    db_files = glob.glob(f"{release_folder}/dbSNP*.gz", recursive=True)
-
-    if not db_files:
-        print(f"No dbSNP files found in {release_folder}.")
-
-    for db_file in db_files:
-        print(f"Processing {db_file}")
-        process_db_file(db_file, epitope_df, epitope_folder)
+    for specie, specie_dict in config_data.items():
+        print(f"Processing {specie}")
+        process_specie(specie, specie_dict, epitope_df, epitope_folder)
 
 
 def main():
@@ -150,24 +172,27 @@ def main():
         description="Process dbSNP files and merge with epitope data."
     )
     parser.add_argument(
-        "release_folder",
+        "output_path",
         type=str,
-        help="Path to the release folder containing dbSNP files.",
+        help="The output path.",
     )
 
     args = parser.parse_args()
 
-    release_folder = args.release_folder
+    output_path = args.output_path
 
-    if not os.path.exists(release_folder):
-        print(f"Release folder '{release_folder}' does not exist.")
+    if not os.path.exists(output_path):
+        print(f"Folder '{output_path}' does not exist.")
         return
 
-    epitope_folder = Path(release_folder) / "epitope"
+    epitope_folder = Path(output_path) / "epitope"
 
     epitope_df = load_epitope_data(epitope_folder)
 
-    process_release_folder(release_folder, epitope_df)
+    config_file = "./glygen/src/main/resources/glygenConfig.properties"
+    config_data = read_glygen_config_file(config_file)
+
+    generate_iedb(output_path, epitope_df, config_data)
     print("Done")
 
 
