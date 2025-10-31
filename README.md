@@ -157,10 +157,10 @@ Simply call the script using the provided wrapper shell script, passing the rele
 You can also pass `force` flag to force download and parsing process
 
 ```bash
-./run.sh python3 scripts/cosmic.py releases/2025_06/
+./run.sh python3 scripts/cosmic.py releases/2025_06/cosmic
 ```
 
-The epitope TSV files output will be generated in `releases/2025_06/cosmic`
+The COSMIC TSV files output will be generated in `releases/2025_06/cosmic`
 
 
 ## Troubleshooting
