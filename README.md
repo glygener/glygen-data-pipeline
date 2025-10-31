@@ -165,7 +165,7 @@ The epitope TSV files output will be generated in `releases/2025_06/cosmic`
 
 ## Troubleshooting
 
-### Dependency not found (Rebuild Container)
+### Dependency not found (Rebuild Container)
 
 If any python dependency is missing, try to rebuild the docker container just typing:
 
@@ -173,7 +173,7 @@ If any python dependency is missing, try to rebuild the docker container just ty
 docker compose build glygen
 ```
 
-### Out-of memory error (Killed):
+### Out-of memory error (Killed):
 1. If you data generation proccess is being killed, maybe you need to raise java memory limits take a look in `java_xms` and `java_xmx` in the `glygen.yaml` file.
 2. Don't forget to regenerate Makefile using `./run.sh j2 Makefile.j2 glygen.yaml > Makefile` after adjusting memory limits.
 
