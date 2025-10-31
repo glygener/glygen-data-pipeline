@@ -327,25 +327,23 @@ def main():
     output_folder = args.output_path
     force = args.force
 
-    config_file = "./glygen/src/main/resources/glygenConfig.properties"
-    config_data = read_glygen_config_file(config_file)
-
-    for key, cd in config_data.items():
-        try:
-            json_file = download_variation_json(
-                taxid=cd.get("taxId"),
-                specie=key,
-                output_folder=output_folder,
-                force=force,
-            )
-            parsed_json_file = f"{output_folder}/{key}.tsv"
-            parse_variant_file(
-                input_file=json_file,
-                output_file=parsed_json_file,
-                force=force,
-            )
-        except Exception as e:
-            logger.exception(e)
+    taxid = "9606"
+    specie = "homo-sapiens"
+    try:
+        json_file = download_variation_json(
+            taxid=taxid,
+            specie=specie,
+            output_folder=output_folder,
+            force=force,
+        )
+        parsed_json_file = f"{output_folder}/{specie}.tsv"
+        parse_variant_file(
+            input_file=json_file,
+            output_file=parsed_json_file,
+            force=force,
+        )
+    except Exception as e:
+        logger.exception(e)
 
 
 if __name__ == "__main__":
