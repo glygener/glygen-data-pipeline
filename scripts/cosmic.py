@@ -7,7 +7,6 @@ from typing import Optional
 import ijson
 import requests
 from loguru import logger
-from utils import read_glygen_config_file
 
 
 def parse_variant_file(input_file: Path, output_file: Path, force: bool):
