@@ -1,5 +1,5 @@
 # Start from a Java 17 base image
-FROM openjdk:17-slim
+FROM openjdk:17.0.1-jdk-slim
 
 # Set environment variables
 ENV JAVA_HOME=/usr/local/openjdk-17
