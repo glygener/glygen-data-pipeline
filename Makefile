@@ -52,11 +52,11 @@ $(INPUT_DIRECTORY)/dbSarsV2/dbSarsV2.lock: $(INPUT_DIRECTORY)/UP000464024_269704
 	tdbloader --loc $(INPUT_DIRECTORY)/dbSarsV2 $<
 	touch $@
 
-$(INPUT_DIRECTORY)/UP000001075_10029_uniprot_proteome.rdf:
+$(INPUT_DIRECTORY)/UP001108280_10029_uniprot_proteome.rdf:
 	mkdir -p $(INPUT_DIRECTORY)
 	$(SHELL) ./scripts/download_files.sh $(INPUT_DIRECTORY)/ $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) $@
 
-$(INPUT_DIRECTORY)/dbCricetulus/dbCricetulus.lock: $(INPUT_DIRECTORY)/UP000001075_10029_uniprot_proteome.rdf
+$(INPUT_DIRECTORY)/dbCricetulus/dbCricetulus.lock: $(INPUT_DIRECTORY)/UP001108280_10029_uniprot_proteome.rdf
 	mkdir -p $(INPUT_DIRECTORY)/dbCricetulus
 	tdbloader --loc $(INPUT_DIRECTORY)/dbCricetulus $<
 	touch $@

@@ -56,8 +56,8 @@ public class ProteomeFastaFetcher extends AbstractFileFetcher {
         URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000437/UP000000437_7955.fasta.gz", "UP000000437_7955.fasta.gz" ); 
         URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000000437/UP000000437_7955_additional.fasta.gz", "UP000000437_7955_additional.fasta.gz" ); 
         
-        URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001075/UP000001075_10029.fasta.gz", "UP000001075_10029.fasta.gz" ); 
-        URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP000001075/UP000001075_10029_additional.fasta.gz", "UP000001075_10029_additional.fasta.gz" ); 
+        URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP001108280/UP001108280_10029.fasta.gz", "UP001108280_10029.fasta.gz" ); 
+        URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP001108280/UP001108280_10029_additional.fasta.gz", "UP001108280_10029_additional.fasta.gz" ); 
         
         
         OTHER_URL_TO_FILES.put( "https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=accession%3AP26662", "UP000008095_11116.fasta" );  
