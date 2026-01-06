@@ -2,7 +2,7 @@ configuration:
   glygen_directory: "./glygen"
   input_directory: "./glygen/in"
   output_directory: "./releases/"
-  release_date: "2025_06"
+  release_date: "2025_12"
   glygen_jar: "glygen-2024.6-SNAPSHOT.jar"
   reactome_directory: "reactome"
   java_xms: "12g"

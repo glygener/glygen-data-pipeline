@@ -1,39 +1,67 @@
 #!/bin/bash
 
+# Arguments
 input_folder=$1
 glygen_jar=$2
 required_file=$3
 
+# Docker image name
+DOCKER_IMAGE="glygen-java17"
+
 mkdir -p ./logs
-pkill -f "java.*$glygen_jar"
+rm -f ./logs/download.log
 
-rm -rf ./logs/download.log
+# Kill any leftover docker-run Java processes
+pkill -f "docker run .* $DOCKER_IMAGE" 2>/dev/null
 
-# Function to start Java process
+# --- Function to run GlyGen using Java 17 inside Docker ---
 start_java_process() {
-    # Start Java process in the background
-    nohup java -cp "$glygen_jar" uk.ac.ebi.uniprot.glygen.GlyGenToolMain "$input_folder" >> ./logs/download.log 2>&1 &
-    # Monitor the input_folder for changes every 60 seconds
-    while true; do
-        sleep 10  # Check every 10 seconds
+    echo "Starting GlyGen Java 17 in Docker..."
+
+    # Run the Java process inside Docker
+    # Mount the current working directory so files are written back to host
+    nohup docker run --rm \
+        -v "$PWD":/work \
+        -w /work \
+        $DOCKER_IMAGE \
+        java -cp "/work/$glygen_jar" \
+        uk.ac.ebi.uniprot.glygen.GlyGenToolMain "/work/$input_folder" \
+        >> ./logs/download.log 2>&1 &
+
+    PID=$!
+    echo "Started Docker-based Java process with PID $PID"
+    sleep 3
+
+    # Check if the process died immediately
+    if ! kill -0 "$PID" 2>/dev/null; then
+        echo "ERROR: Docker Java process exited immediately. See ./logs/download.log"
+        exit 1
+    fi
+
+    # Monitor folder activity
+    while kill -0 "$PID" 2>/dev/null; do
+        sleep 10
         if ! find "$input_folder" -mmin -2 -print -quit | grep -q .; then
-            echo "No changes detected in the last 1 minute. Killing Java process..."
-            pkill -f "java.*$glygen_jar"
-            break
+            echo "No recent changes. Stopping Docker Java process…"
+            kill "$PID"
+            wait "$PID" 2>/dev/null
+            return
         fi
     done
-    echo "Java process finished."
+
+    echo "Docker Java process finished."
 }
 
-# Continuously check for the required file and start Java process if it doesn't exist
+# --- Main Loop ---
 while true; do
     echo "Checking file: ${required_file}"
+
     if [ -f "${required_file}" ]; then
-        echo "Required file exists. Exiting loop."
+        echo "Required file exists. Exiting."
         break
-    else
-        echo "Required file does not exist. Starting Java process..."
-        start_java_process
-        sleep 5 # Wait for 5 seconds before checking again
     fi
+
+    echo "Required file missing. Starting Docker Java 17 process..."
+    start_java_process
+    sleep 5
 done

@@ -32,7 +32,7 @@ public class ProteomeRdfFetcher extends AbstractFileFetcher {
         URL_TO_FILES.put("https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000009136%29", "UP000009136_9913_uniprot_proteome.rdf.gz" );         
         URL_TO_FILES.put("https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000000437%29", "UP000000437_7955_uniprot_proteome.rdf.gz" ); 
         
-        URL_TO_FILES.put("https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP000001075%29", "UP000001075_10029_uniprot_proteome.rdf.gz" ); 
+        URL_TO_FILES.put("https://rest.uniprot.org/uniprotkb/stream?compressed=true&format=rdf&query=%28proteome%3AUP001108280%29", "UP001108280_10029_uniprot_proteome.rdf.gz" ); 
         
         
        OTHER_URL_TO_FILES.put("https://rest.uniprot.org/uniprotkb/P27958.rdf", "UP000000518_63746_uniprot_proteome.rdf" );            

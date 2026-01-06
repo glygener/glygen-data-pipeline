@@ -185,7 +185,7 @@ If data-generation process fails, try to execute the steps one-by-one to identif
 
 1. Make sure docker daemon is running
 2. Remove previous docker services using `docker compose down -v`
-3. Rebuild docker services with `docker-compose up -d --build`
+3. Rebuild docker services with `docker compose up -d --build`
 4. Check if the `Makefile` is well generated and placed correctly.
 5. Remove any previous downloaded content `./run.sh make clean`
 6. Type `./run.sh make all` or `./generate-data.sh`.

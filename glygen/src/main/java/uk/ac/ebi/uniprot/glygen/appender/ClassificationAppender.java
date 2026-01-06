@@ -76,16 +76,30 @@ public class ClassificationAppender implements DataAppender {
     }
 
     private void updateGoInfo(Resource resource, String resId) {
+
         String goTerm = getTermLabelFromGeneOntologiesRdf(goModel, resId);
-        if (goTerm == null) {
-            // Not an error. If GO is made obsolete/secondary, label will be missing.
-            logger.info("Label not found for {}", resId);
+        if (goTerm == null || goTerm.isBlank()) {
+            // Not an error: obsolete / secondary GO terms may lack labels
+            logger.info("GO label not found for {}", resId);
+            return;
+        }
+    
+        resource.addProperty(RDF.type, OWL.Class);
+        resource.addProperty(RDFS.label, goTerm);
+    
+        String namespace =
+                getClassificationLabelFromGeneOntologiesRdf(goModel, resId);
+    
+        if (namespace != null && !namespace.isBlank()) {
+            resource.addProperty(
+                outModel.createProperty(GLY_GO_CLASSIFICATION),
+                namespace
+            );
         } else {
-            resource.addProperty(RDF.type, OWL.Class);
-            resource.addProperty(RDFS.label, goTerm);
-            resource.addProperty(outModel.createProperty(GLY_GO_CLASSIFICATION), getClassificationLabelFromGeneOntologiesRdf(goModel, resId));
+            logger.debug("GO namespace missing for {}", resId);
         }
     }
+    
 
     private void updateGoClassification(Model rdfModel, Set<String> accSet) {
 

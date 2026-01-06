@@ -25,7 +25,7 @@ public class GenomicCoordinateFetcher extends AbstractFileFetcher {
         URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=3702&format=json" , "UP000006548_3702.coordinates.json" ); 
         URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=9913&format=json" , "UP000009136_9913.coordinates.json" ); 
         URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=7955&format=json" , "UP000000437_7955.coordinates.json" ); 
-        URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=10029&format=json" , "UP000001075_10029.coordinates.json" ); 
+        URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/coordinates?offset=0&size=-1&taxid=10029&format=json" , "UP001108280_10029.coordinates.json" ); 
         
     };
 

@@ -1,0 +1,56 @@
+nohup: ignoring input
+ glygen  Built
+ Container neo4j  Running
+ Container glygen-app  Created
+ Container glygen-app  Starting
+ Container glygen-app  Started
+ Container neo4j  Running
+[main] INFO uk.ac.ebi.uniprot.glygen.GlyGenToolMain - Fetch variation xml data
+[pool-1-thread-1] INFO uk.ac.ebi.uniprot.glygen.input.VariationHumanFetcher - Fetch human variation xml data
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - Fetch supported data rdf files
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: databases.rdf successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: locations.rdf successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: go.owl successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: enzyme.rdf successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: keywords.rdf successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: diseases.rdf successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.SupportDataRdfFetcher - File: tissues.rdf successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - Fetch fasta files
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000539_9031.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000002195_44689_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000009136_9913_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000005640_9606.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000006548_3702_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000589_10090_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000803_7227_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000437_7955_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000008227_9823.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000437_7955.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP001108280_10029.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000803_7227.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000589_10090.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000354_694009.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000008227_9823_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000009136_9913.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000002494_10116_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000002311_559292_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000539_9031_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000002311_559292.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000005640_9606_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000002494_10116.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000006548_3702.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP001108280_10029_additional.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000002195_44689.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000464024_2697049.fasta successfully fetched and uncompressed.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000008095_11116.fasta successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.ProteomeFastaFetcher - File: UP000000518_63746.fasta successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - Fetch genomic coordinate to json files
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - File: UP000000589_10090.coordinates.json successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - File: UP000008227_9823.coordinates.json successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - File: UP000000539_9031.coordinates.json successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - File: UP000002494_10116.coordinates.json successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - File: UP000009136_9913.coordinates.json successfully fetched.
+[pool-1-thread-2] INFO uk.ac.ebi.uniprot.glygen.input.GenomicCoordinateFetcher - File: UP000006548_3702.coordinates.json successfully fetched.
+make[1]: *** [Makefile:27: download-files] Error 143
+make: *** [Makefile:236: all] Terminated
+make: *** wait: No child processes.  Stop.

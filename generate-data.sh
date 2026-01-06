@@ -10,6 +10,15 @@ run() {
     ./run.sh "$@"
 }
 
+wait_for_neo4j() {
+  log "Waiting for Neo4j Bolt..."
+  until docker exec neo4j cypher-shell -u neo4j -p reactome "RETURN 1" >/dev/null 2>&1; do
+    sleep 5
+  done
+  log "Neo4j is ready"
+}
+
+
 log "Ensuring network exists..."
 docker network inspect glygennet >/dev/null 2>&1 || \
     docker network create --driver bridge glygennet
@@ -26,6 +35,9 @@ run make setup-reactome
 log "Starting neo4j service..."
 docker compose up neo4j -d --build
 
+# Wait for Neo4j to finish first-run initialization and become healthy
+wait_for_neo4j
+
 log "Updating java code"
 run make generate-glygenjar -B
 
@@ -34,3 +46,8 @@ run java -cp ./glygen/target/glygen-2024.6-SNAPSHOT.jar  uk.ac.ebi.uniprot.glyge
 
 log "Generating data..."
 run make all
+
+log "Fixing permissions on generated files..."
+chmod -R 777 ~/ebi-glygen-releases
+
+log "Pipeline completed successfully."
