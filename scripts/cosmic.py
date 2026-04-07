@@ -335,7 +335,7 @@ def main():
             output_folder=output_folder,
             force=force,
         )
-        parsed_json_file = f"{output_folder}/{specie}.tsv"
+        parsed_json_file = f"{output_folder}/{specie}-cosmic.tsv"
         parse_variant_file(
             input_file=json_file,
             output_file=parsed_json_file,

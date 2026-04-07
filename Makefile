@@ -180,21 +180,27 @@ $(INPUT_DIRECTORY)/dbDanio/dbDanio.lock: $(INPUT_DIRECTORY)/UP000000437_7955_uni
 
 
 $(REACTOME_DIR)/reactome.graphdb.tgz:
-	rm -rf $(REACTOME_DIR)
 	mkdir -p $(REACTOME_DIR)
-	curl --retry 3 --retry-delay 3 --retry-max-time 0 --retry-all-errors -C - -o "$@" "https://reactome.org/download/current/reactome.graphdb.tgz"
-
-$(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz 
-	@echo "Extracting Reactome graph.db..." 
-	rm -rf $(REACTOME_DIR)/graph.db 
-	mkdir -p $(REACTOME_DIR)/graph.db 
-	tar -xzf $< -C $(REACTOME_DIR)/graph.db 
+	curl --retry 10 \
+	     --retry-delay 5 \
+	     --retry-max-time 600 \
+	     --connect-timeout 60 \
+	     --max-time 3600 \
+	     --retry-all-errors \
+	     -C - \
+	     -o "$@" \
+	     "https://reactome.org/download/current/reactome.graphdb.tgz"
+	@echo "Verifying downloaded file..."
+	@tar -tzf "$@" > /dev/null || (rm -f "$@" && echo "Error: corrupted tarball" && false)
+	
+$(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz
+	mkdir -p $(REACTOME_DIR)/graph.db
+	tar -xzf $< -C $(REACTOME_DIR)/graph.db
 	touch $@
 
 .PHONY: setup-reactome
 
 setup-reactome: ./neo4j/data/databases/graph.db/reactome.lock
-
 ./neo4j/data/databases/graph.db/reactome.lock: $(REACTOME_DIR)/graph.db/reactome.lock
 	mkdir -p ./neo4j/conf/
 	mkdir -p ./neo4j/data/databases/
@@ -202,17 +208,19 @@ setup-reactome: ./neo4j/data/databases/graph.db/reactome.lock
 	rm -rf ./neo4j/data/databases/graph.db
 	cp -rf $(REACTOME_DIR)/graph.db ./neo4j/data/databases/graph.db
 
+
+
 .PHONY: generate-data
 generate-data: $(OUTPUT_DIRECTORY)/data_generation.lock
 
 $(OUTPUT_DIRECTORY)/data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
 	$(MAKE) setup-reactome
 	$(MAKE) import-triplets
-	mkdir -p $(OUTPUT_DIRECTORY)/2025_12
+	mkdir -p $(OUTPUT_DIRECTORY)/2026_01
 	java -Xms12g -Xmx32g \
 	-cp $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlygenDataGeneratorMain \
 	-input $(GLYGEN_DIRECTORY) \
-	-output $(OUTPUT_DIRECTORY)/2025_12 \
+	-output $(OUTPUT_DIRECTORY)/2026_01 \
 	-configFile $(GLYGEN_DIRECTORY)/src/main/resources/glygenConfig.properties
 	touch $@
 
@@ -220,14 +228,14 @@ $(OUTPUT_DIRECTORY)/data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JA
 generate-other-data: $(OUTPUT_DIRECTORY)/other_data_generation.lock
 
 $(OUTPUT_DIRECTORY)/other_data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
-	mkdir -p $(OUTPUT_DIRECTORY)/2025_12
+	mkdir -p $(OUTPUT_DIRECTORY)/2026_01
 	$(MAKE) setup-reactome
 	$(MAKE) import-triplets
 	cd $(GLYGEN_DIRECTORY) && java -Xms12g -Xmx32g \
-	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/2025_12
+	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/2026_01
 	touch $@
 
-$(OUTPUT_DIRECTORY)/2025_12:
+$(OUTPUT_DIRECTORY)/2026_01:
 	mkdir -p $@
 
 .PHONY: all

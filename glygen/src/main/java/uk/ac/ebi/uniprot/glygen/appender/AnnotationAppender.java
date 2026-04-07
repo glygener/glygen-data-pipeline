@@ -343,8 +343,10 @@ public class AnnotationAppender implements DataAppender {
         resource.addProperty(RDF.type, outModel.createResource(AT_REACTION));
         Property equation = outModel.createProperty(GLY_EQUATION);
         if (!resource.hasProperty(equation)) {
-            resource.addProperty(equation,
-                    outModel.createLiteral(getReactionLabelFromRheaRdf(rheaModel,resource.getURI())));
+            String reactionLabel = getReactionLabelFromRheaRdf(rheaModel,resource.getURI());
+            if (reactionLabel != null) {
+                resource.addProperty(equation, outModel.createLiteral(reactionLabel));
+            }
         }
         Property hasEnzyme = outModel.createProperty(GLY_HAS_ENZYME);
         if (!resource.hasProperty(hasEnzyme)) {
