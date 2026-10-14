@@ -31,7 +31,9 @@ public class VariationNonhumanFetcher extends AbstractFileFetcher implements Cal
         URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=10116&format=xml", "UP000002494_10116.dbSnp.xml" );         
         URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=10090&format=xml", "UP000000589_10090.dbSnp.xml" );   
         URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=9913&format=xml", "UP000009136_9913.dbSnp.xml" );   
-        URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=10029&format=xml", "UP001108280_10029.dbSnp.xml" );        
+        URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=10029&format=xml", "UP001108280_10029.dbSnp.xml" );       
+        URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=565995&format=xml", "UP000143891_565995.dbSnp.xml" );
+        URL_TO_FILES.put("https://www.ebi.ac.uk/proteins/api/variation?offset=0&size=-1&taxid=128952&format=xml", "UP000007209_128952.dbSnp.xml" );
     };
 
     public List<FileFetchStatus> fetch() {        

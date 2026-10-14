@@ -14,6 +14,8 @@ import javax.xml.parsers.SAXParserFactory;
 import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.zip.GZIPOutputStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static uk.ac.ebi.uniprot.glygen.util.GlygenUtility.*;
 
@@ -58,6 +60,12 @@ public class DbSnpDatasetGenerator extends DefaultHandler implements DatasetGene
     private SAXParser saxParser = null;
     private Writer writer;
     private final String outputDir;
+    
+    private static final Pattern SUBSTITUTION =
+        Pattern.compile("^(\\d+)(?:[-_](\\d+))?([ACGTN]*)>([ACGTN]+)$");
+    private static final Pattern COORDINATES =
+        Pattern.compile("^(\\d+)(?:[-_](\\d+))?");
+    private final StringBuilder genomicLocationBuffer = new StringBuilder();
 
     public DbSnpDatasetGenerator(GlygenConfig config, String outputDir) {
         this.outputDir = outputDir;
@@ -141,6 +149,9 @@ public class DbSnpDatasetGenerator extends DefaultHandler implements DatasetGene
             case FEATURE:
                 bVariant = attributes.getValue(TYPE).equals(VARIANT);
                 break;
+            case GENOMIC_LOCATION:
+                genomicLocationBuffer.setLength(0);
+                break;
             case DESCRIPTION:
                 bDesc = true;
                 break;
@@ -167,6 +178,9 @@ public class DbSnpDatasetGenerator extends DefaultHandler implements DatasetGene
                 } catch (Exception ex) {
                     throw new GlyGenException("Error updating dbSNP Info " + ex);
                 }
+                break;
+            case GENOMIC_LOCATION:
+                parseGenomicLocation();
                 break;
             case DESCRIPTION:
                 bDesc = false;
@@ -254,18 +268,40 @@ public class DbSnpDatasetGenerator extends DefaultHandler implements DatasetGene
     }
 
     private void handleGenomicLocation(String value) {
-        if (value.startsWith("NC")) {
-            snpVariant.setGenomicLocationPosition(value.substring(value.lastIndexOf('.') + 1, value.length() - 3));
-            snpVariant.setRefAllele(value.substring(value.length() - 1));
-        } else if (value.length() > 2 && (value.charAt(1) == ':' || value.charAt(2) == ':')) {
-            snpVariant.setGenomicLocationPosition(value.substring(0, value.length() - 3));
-            snpVariant.setRefAllele(value.substring(value.length() - 1));
-        } else if (value.length() == 1) {
-            if (!value.equals(">"))
-                snpVariant.setAltAllele(value);
-//        } else {
-//            logger.debug("Non NC genomic location --> {} ", value);
+        genomicLocationBuffer.append(value);
+    }
+
+    private void parseGenomicLocation() {
+        String loc = genomicLocationBuffer.toString().trim();
+        genomicLocationBuffer.setLength(0);
+        if (snpVariant == null) return;
+
+        // Clear values carried over by the copy constructor in printVariant()
+        snpVariant.setGenomicLocationPosition(null);
+        snpVariant.setRefAllele(null);
+        snpVariant.setAltAllele(null);
+        if (loc.isEmpty()) return;
+
+        // "NC_000017.11:g.30172592G>T" -> "30172592G>T"; also handles "22:30172592G>T"
+        String coord = loc.substring(loc.lastIndexOf(':') + 1);
+        if (coord.startsWith("g.")) coord = coord.substring(2);
+
+        Matcher m = SUBSTITUTION.matcher(coord);
+        if (m.matches()) {
+            snpVariant.setGenomicLocationPosition(formatPosition(m.group(1), m.group(2)));
+            snpVariant.setRefAllele(m.group(3).isEmpty() ? null : m.group(3));
+            snpVariant.setAltAllele(m.group(4));
+        } else {
+            // del, dup, ins etc.: keep the coordinates, no alleles
+            Matcher p = COORDINATES.matcher(coord);
+            if (p.find()) {
+                snpVariant.setGenomicLocationPosition(formatPosition(p.group(1), p.group(2)));
+            }
         }
+    }
+
+    private static String formatPosition(String start, String end) {
+        return end == null ? start : start + "_" + end;
     }
 
     private void handleDbReferences(Attributes attributes) {

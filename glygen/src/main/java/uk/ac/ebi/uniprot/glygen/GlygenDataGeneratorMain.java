@@ -14,6 +14,7 @@ import uk.ac.ebi.uniprot.glygen.appender.*;
 import uk.ac.ebi.uniprot.glygen.core.ConfigReader;
 import uk.ac.ebi.uniprot.glygen.core.GlyGenException;
 import uk.ac.ebi.uniprot.glygen.generator.DbSnpDatasetGenerator;
+import uk.ac.ebi.uniprot.glygen.generator.ObsoleteAccessionDatasetGenerator;
 import uk.ac.ebi.uniprot.glygen.model.GlygenConfig;
 import uk.ac.ebi.uniprot.glygen.model.GlygenDataset;
 import uk.ac.ebi.uniprot.glygen.util.RdfUtility;
@@ -100,7 +101,7 @@ public class GlygenDataGeneratorMain {
         logger.info("Start ObsoleteAccessionDatasetGenerator");
         Dataset dataset = TDBFactory.createDataset(config.getDbDir());
         dataset.begin(ReadWrite.READ);
-//        new ObsoleteAccessionDatasetGenerator(config, dataset.getDefaultModel(), entityManager, outputDir).generateDataset();
+        new ObsoleteAccessionDatasetGenerator(config, dataset.getDefaultModel(), null, outputDir).generateDataset();
         dataset.end();
     }
 

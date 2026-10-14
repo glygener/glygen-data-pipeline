@@ -31,7 +31,7 @@ download-files: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
 .PRECIOUS: import-triplets
 .PRECIOUS: $(INPUT_DIRECTORY)/%.rdf
 
-import-triplets:  $(INPUT_DIRECTORY)/dbSars/dbSars.lock  $(INPUT_DIRECTORY)/dbSarsV2/dbSarsV2.lock  $(INPUT_DIRECTORY)/dbCricetulus/dbCricetulus.lock  $(INPUT_DIRECTORY)/dbHomo/dbHomo.lock  $(INPUT_DIRECTORY)/dbMus/dbMus.lock  $(INPUT_DIRECTORY)/dbRat/dbRat.lock  $(INPUT_DIRECTORY)/dbDroso/dbDroso.lock  $(INPUT_DIRECTORY)/dbSacc/dbSacc.lock  $(INPUT_DIRECTORY)/dbDicty/dbDicty.lock  $(INPUT_DIRECTORY)/dbSus/dbSus.lock  $(INPUT_DIRECTORY)/dbGal/dbGal.lock  $(INPUT_DIRECTORY)/dbAra/dbAra.lock  $(INPUT_DIRECTORY)/dbHcv1a/dbHcv1a.lock  $(INPUT_DIRECTORY)/dbHcv1b/dbHcv1b.lock  $(INPUT_DIRECTORY)/dbBos/dbBos.lock  $(INPUT_DIRECTORY)/dbDanio/dbDanio.lock 
+import-triplets:  $(INPUT_DIRECTORY)/dbSars/dbSars.lock  $(INPUT_DIRECTORY)/dbSarsV2/dbSarsV2.lock  $(INPUT_DIRECTORY)/dbCricetulus/dbCricetulus.lock  $(INPUT_DIRECTORY)/dbHomo/dbHomo.lock  $(INPUT_DIRECTORY)/dbMus/dbMus.lock  $(INPUT_DIRECTORY)/dbRat/dbRat.lock  $(INPUT_DIRECTORY)/dbDroso/dbDroso.lock  $(INPUT_DIRECTORY)/dbSacc/dbSacc.lock  $(INPUT_DIRECTORY)/dbDicty/dbDicty.lock  $(INPUT_DIRECTORY)/dbSus/dbSus.lock  $(INPUT_DIRECTORY)/dbGal/dbGal.lock  $(INPUT_DIRECTORY)/dbAra/dbAra.lock  $(INPUT_DIRECTORY)/dbHcv1a/dbHcv1a.lock  $(INPUT_DIRECTORY)/dbHcv1b/dbHcv1b.lock  $(INPUT_DIRECTORY)/dbBos/dbBos.lock  $(INPUT_DIRECTORY)/dbDanio/dbDanio.lock  $(INPUT_DIRECTORY)/dbBundibugyo/dbBundibugyo.lock  $(INPUT_DIRECTORY)/dbZaireEbolavirus/dbZaireEbolavirus.lock 
 
 
 $(INPUT_DIRECTORY)/UP000000354_694009_uniprot_proteome.rdf:
@@ -178,6 +178,24 @@ $(INPUT_DIRECTORY)/dbDanio/dbDanio.lock: $(INPUT_DIRECTORY)/UP000000437_7955_uni
 	tdbloader --loc $(INPUT_DIRECTORY)/dbDanio $<
 	touch $@
 
+$(INPUT_DIRECTORY)/UP000143891_565995_uniprot_proteome.rdf:
+	mkdir -p $(INPUT_DIRECTORY)
+	$(SHELL) ./scripts/download_files.sh $(INPUT_DIRECTORY)/ $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) $@
+
+$(INPUT_DIRECTORY)/dbBundibugyo/dbBundibugyo.lock: $(INPUT_DIRECTORY)/UP000143891_565995_uniprot_proteome.rdf
+	mkdir -p $(INPUT_DIRECTORY)/dbBundibugyo
+	tdbloader --loc $(INPUT_DIRECTORY)/dbBundibugyo $<
+	touch $@
+
+$(INPUT_DIRECTORY)/UP000007209_128952_uniprot_proteome.rdf:
+	mkdir -p $(INPUT_DIRECTORY)
+	$(SHELL) ./scripts/download_files.sh $(INPUT_DIRECTORY)/ $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) $@
+
+$(INPUT_DIRECTORY)/dbZaireEbolavirus/dbZaireEbolavirus.lock: $(INPUT_DIRECTORY)/UP000007209_128952_uniprot_proteome.rdf
+	mkdir -p $(INPUT_DIRECTORY)/dbZaireEbolavirus
+	tdbloader --loc $(INPUT_DIRECTORY)/dbZaireEbolavirus $<
+	touch $@
+
 
 $(REACTOME_DIR)/reactome.graphdb.tgz:
 	mkdir -p $(REACTOME_DIR)
@@ -194,8 +212,8 @@ $(REACTOME_DIR)/reactome.graphdb.tgz:
 	@tar -tzf "$@" > /dev/null || (rm -f "$@" && echo "Error: corrupted tarball" && false)
 	
 $(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz
-	mkdir -p $(REACTOME_DIR)/graph.db
-	tar -xzf $< -C $(REACTOME_DIR)/graph.db
+	mkdir -p $(REACTOME_DIR)
+	tar -xzf $< -C $(REACTOME_DIR)
 	touch $@
 
 .PHONY: setup-reactome
@@ -216,11 +234,11 @@ generate-data: $(OUTPUT_DIRECTORY)/data_generation.lock
 $(OUTPUT_DIRECTORY)/data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
 	$(MAKE) setup-reactome
 	$(MAKE) import-triplets
-	mkdir -p $(OUTPUT_DIRECTORY)/2026_01
+	mkdir -p $(OUTPUT_DIRECTORY)/2026_06
 	java -Xms12g -Xmx32g \
 	-cp $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlygenDataGeneratorMain \
 	-input $(GLYGEN_DIRECTORY) \
-	-output $(OUTPUT_DIRECTORY)/2026_01 \
+	-output $(OUTPUT_DIRECTORY)/2026_06 \
 	-configFile $(GLYGEN_DIRECTORY)/src/main/resources/glygenConfig.properties
 	touch $@
 
@@ -228,14 +246,19 @@ $(OUTPUT_DIRECTORY)/data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JA
 generate-other-data: $(OUTPUT_DIRECTORY)/other_data_generation.lock
 
 $(OUTPUT_DIRECTORY)/other_data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLYGEN_JAR)
-	mkdir -p $(OUTPUT_DIRECTORY)/2026_01
+	mkdir -p $(OUTPUT_DIRECTORY)/2026_06
 	$(MAKE) setup-reactome
 	$(MAKE) import-triplets
 	cd $(GLYGEN_DIRECTORY) && java -Xms12g -Xmx32g \
-	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/2026_01
+	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/2026_06
 	touch $@
 
-$(OUTPUT_DIRECTORY)/2026_01:
+.PHONY: update-accessions
+update-accessions:
+	cd $(GLYGEN_DIRECTORY) && java -Xms12g -Xmx32g \
+	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/2026_06
+
+$(OUTPUT_DIRECTORY)/2026_06:
 	mkdir -p $@
 
 .PHONY: all

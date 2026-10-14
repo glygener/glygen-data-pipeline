@@ -95,6 +95,9 @@ Depends on all previous setups and generates data using the Glygen JAR.
 ### 6. **generate-other-data**
 Depends on all previous setups and generates data using the Glygen JAR. It generates the other data required for glygen data release
 
+### 8. update-accessions
+Generates the "all_accessions.csv" and "dbXrefMap.csv" files. 
+
 ### 7. **all**
 
 The `all` target sequentially invokes the following commands using required for the glygen data generation:
@@ -110,6 +113,7 @@ Removes generated files and directories.
 - `make setup-reactome`: Download Reactome Data and copy it to Neo4J.
 - `make generate-data`: Generates data.
 - `make generate-other-data`: Generates other data required to glygen data release.
+- `make update-accessions`: Generates the "all_accessions.csv" and "dbXrefMap.csv" files. 
 - `make all`: Encapsulate all required steps.
 - `make clean`: Cleans up generated files.
 
@@ -141,7 +145,7 @@ Removes generated files and directories.
 
 ## EPITOPE Data Generation
 After the release is complete, you can generate the epitope data using the `scripts/epitope.py` file.
-Simply call the script using the provided wrapper shell script, passing the release folder as the argument. In this case, the release folder is `releases/2025_06/`.
+Simply call the script using the provided wrapper shell script, passing the release folder as the argument e.g. if the release folder is `releases/2025_06/`.
 
 ```bash
 ./run.sh python3 scripts/epitope.py releases/2025_06/
@@ -152,15 +156,15 @@ The epitope TSV files output will be generated in `releases/2025_06/epitope`
 
 ## COSMIC Data Generation
 After the release is complete, you can generate the epitope data using the `scripts/cosmic.py` file.
-Simply call the script using the provided wrapper shell script, passing the release folder as the argument. In this case, the release folder is `releases/2025_06/`.
-
-You can also pass `force` flag to force download and parsing process
+Simply call the script using the provided wrapper shell script, passing the release folder as the argument e.g. if the release folder is `releases/2025_06/`.
 
 ```bash
 ./run.sh python3 scripts/cosmic.py releases/2025_06/cosmic
 ```
 
 The COSMIC TSV files output will be generated in `releases/2025_06/cosmic`
+
+You can also pass `force` flag to force download and parsing process
 
 
 ## Troubleshooting
