@@ -59,8 +59,8 @@ $(REACTOME_DIR)/reactome.graphdb.tgz:
 	@tar -tzf "$@" > /dev/null || (rm -f "$@" && echo "Error: corrupted tarball" && false)
 	
 $(REACTOME_DIR)/graph.db/reactome.lock: $(REACTOME_DIR)/reactome.graphdb.tgz
-	mkdir -p $(REACTOME_DIR)/graph.db
-	tar -xzf $< -C $(REACTOME_DIR)/graph.db
+	mkdir -p $(REACTOME_DIR)
+	tar -xzf $< -C $(REACTOME_DIR)
 	touch $@
 
 .PHONY: setup-reactome
@@ -99,6 +99,11 @@ $(OUTPUT_DIRECTORY)/other_data_generation.lock: $(GLYGEN_DIRECTORY)/target/$(GLY
 	cd $(GLYGEN_DIRECTORY) && java -Xms{{ configuration.java_xms }} -Xmx{{ configuration.java_xmx }} \
 	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/{{ configuration.release_date }}
 	touch $@
+
+.PHONY: update-accessions
+update-accessions:
+	cd $(GLYGEN_DIRECTORY) && java -Xms{{ configuration.java_xms }} -Xmx{{ configuration.java_xmx }} \
+	-cp ./target/$(GLYGEN_JAR) uk.ac.ebi.uniprot.glygen.GlyGenOtherDataGeneratorMain ../$(GLYGEN_DIRECTORY) ../$(OUTPUT_DIRECTORY)/{{ configuration.release_date }}
 
 $(OUTPUT_DIRECTORY)/{{ configuration.release_date }}:
 	mkdir -p $@

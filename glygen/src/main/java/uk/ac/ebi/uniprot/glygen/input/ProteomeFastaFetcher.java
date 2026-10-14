@@ -59,6 +59,9 @@ public class ProteomeFastaFetcher extends AbstractFileFetcher {
         URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP001108280/UP001108280_10029.fasta.gz", "UP001108280_10029.fasta.gz" ); 
         URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Eukaryota/UP001108280/UP001108280_10029_additional.fasta.gz", "UP001108280_10029_additional.fasta.gz" ); 
         
+        URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Viruses/UP000143891/UP000143891_565995.fasta.gz", "UP000143891_565995.fasta.gz" );
+        
+        URL_TO_FILES.put("https://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/reference_proteomes/Viruses/UP000007209/UP000007209_128952.fasta.gz", "UP000007209_128952.fasta.gz" );
         
         OTHER_URL_TO_FILES.put( "https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=accession%3AP26662", "UP000008095_11116.fasta" );  
         OTHER_URL_TO_FILES.put("https://rest.uniprot.org/uniprotkb/stream?format=fasta&query=%28%28xref%3Aproteomes-UP000000518%29+NOT+%28accession%3AP0C045%29%29", "UP000000518_63746.fasta" );  
